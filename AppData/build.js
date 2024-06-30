@@ -217,13 +217,37 @@ class MoveCamera extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
     super(...arguments);
     this.mouseX = 0;
     this.mouseY = 0;
+    this.isMobile = false;
   }
   awake() {
-    document.addEventListener("mousemove", this.onMouseMove.bind(this), false);
+    this.isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (this.isMobile) {
+      this.requestDeviceOrientationPermission();
+    } else {
+      document.addEventListener("mousemove", this.onMouseMove.bind(this), false);
+    }
+  }
+  requestDeviceOrientationPermission() {
+    if (typeof DeviceOrientationEvent.requestPermission === "function") {
+      DeviceOrientationEvent.requestPermission().then((permissionState) => {
+        if (permissionState === "granted") {
+          window.addEventListener("deviceorientation", this.onDeviceOrientation.bind(this), true);
+        } else {
+          alert("Device Orientation permission denied.");
+        }
+      }).catch(console.error);
+    } else {
+      window.addEventListener("deviceorientation", this.onDeviceOrientation.bind(this), true);
+    }
   }
   onMouseMove(event) {
     this.mouseX = event.clientX / window.innerWidth * 2 - 1;
     this.mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+  }
+  onDeviceOrientation(event) {
+    const { alpha, beta, gamma } = event;
+    this.mouseX = gamma / 90;
+    this.mouseY = beta / 180;
   }
   update() {
     const camera = rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Runtime.camera;
