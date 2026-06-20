@@ -1,64 +1,274 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YongHeng | 3D Model Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="cosmic-cursor" aria-hidden="true">
+      <span class="cursor-orbit"></span>
+      <span class="cursor-planet"></span>
+      <span class="cursor-star"></span>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-  <meta name="theme-color" content="#000000">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="YongHeng 首頁">
+        <span class="brand-mark">永</span>
+        <span>YongHeng</span>
+      </a>
+      <nav aria-label="主要導覽">
+        <a href="#work">作品</a>
+        <a href="#model-preview">模型</a>
+        <a href="#process">流程</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </header>
 
-  <title>Project</title>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-art" src="yongheng-profile.png" alt="永恆星 Forever Planet 星空視覺主圖" data-float="18" />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="lyric-fragments" aria-hidden="true">
+          <span data-float="42">永遠は少しだけ暗い</span>
+          <span data-float="-28">FOREVER PLANET</span>
+          <span data-float="34">模型 / 夢 / 逃避行</span>
+          <span data-float="-20">君の輪郭をつくる</span>
+        </div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">Abstract 3D Artist / Melancholy World Builder</p>
+            <h1 id="hero-title" data-float="14">YongHeng</h1>
+            <p class="lead">
+              像一首陰天裡的歌，把角色、場景與物件模型做成帶有孤獨感的視覺切片。以抽象輪廓、低飽和光影與互動展示，把 3D 作品轉化成可被凝視的情緒空間。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#work">查看作品</a>
+              <a class="button ghost" href="#studio">設計能力</a>
+            </div>
+          </div>
 
-  <style>
-    html, body, #rogue-app {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      background-color: #121518;
-      overflow: hidden;
-    }
-    #rogue-engine-loading-logo {
-      color: white;
-      animation-name: rogueengineloadinglogo;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-      transform-origin: 50% 50%;
-      display: inline-block;
-      top: calc(50% - 50px);
-      right: calc(50% - 50px);
-      height: 100px;
-      width: 100px;
-      position: absolute;
-    }
-    @keyframes rogueengineloadinglogo {
-        0% {
-            transform: rotate(0deg);
+          <aside class="console-panel" aria-label="即時 3D 展示控制台" data-float="-12">
+            <div class="abstract-boy" aria-hidden="true" data-float="24">
+              <span class="hair"></span>
+              <span class="face"></span>
+              <span class="neck"></span>
+              <span class="coat"></span>
+              <span class="red-thread"></span>
+            </div>
+            <div class="panel-topline">
+              <span>INNER SCENE</span>
+              <span class="status-dot"></span>
+            </div>
+            <div id="modelStage" class="model-stage" aria-label="互動式 3D 星球模型"></div>
+            <div class="control-row" aria-label="模型風格切換">
+              <button class="chip active" data-mode="planet">Planet</button>
+              <button class="chip" data-mode="crystal">Crystal</button>
+              <button class="chip" data-mode="wire">Wire</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="studio" class="section studio-section">
+        <div class="section-heading">
+          <p class="eyebrow">Design Focus</p>
+          <h2>把模型做成像歌曲一樣有殘響的世界</h2>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-tile">
+            <span class="tile-index">01</span>
+            <h3>3D Modeling</h3>
+            <p>從剪影與姿態開始，讓角色、場景與道具保有清楚輪廓，也留下情緒的空白。</p>
+          </article>
+          <article class="skill-tile">
+            <span class="tile-index">02</span>
+            <h3>Look Development</h3>
+            <p>用冷色陰影、微弱暖光與材質噪點，把灰模推向更接近插畫與音樂影像的氣質。</p>
+          </article>
+          <article class="skill-tile">
+            <span class="tile-index">03</span>
+            <h3>Interactive Display</h3>
+            <p>讓滑鼠視差、模型旋轉與圖像切換形成觀看節奏，作品集不只是圖片排列。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="model-preview" class="section model-preview-section">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Interactive FBX Preview</p>
+            <h2>藥包</h2>
+          </div>
+          <p class="section-caption">滑鼠拖曳旋轉，滾輪縮放，右鍵拖曳平移。</p>
+        </div>
+        <article class="fbx-showcase">
+          <div class="fbx-viewer" id="fbxViewer" aria-label="藥包 FBX 互動模型預覽">
+            <div class="viewer-status" id="fbxStatus">Loading FBX model...</div>
+          </div>
+          <div class="fbx-info">
+            <p class="eyebrow">3D Asset</p>
+            <h3>藥包</h3>
+            <p>
+              這個作品以物件模型展示為核心，呈現藥包的造型輪廓、比例與材質細節。此區塊直接載入 FBX 檔，讓觀看者能以滑鼠檢視模型的空間關係。
+            </p>
+            <div class="role-list">
+              <span>FBX Model</span>
+              <span>Mouse Orbit</span>
+              <span>Realtime Preview</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="work" class="section work-section">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Selected Works</p>
+            <h2>作品與專案經歷</h2>
+          </div>
+        </div>
+
+        <article class="featured-project">
+          <div class="project-copy">
+            <p class="eyebrow">VR Game / 60919 南同俱樂部</p>
+            <h2>《調停者》</h2>
+            <p>
+              由南臺科技大學學生團隊「60919 南同俱樂部」打造的第三人稱 VR 解謎遊戲，於放視大賞 2023 開放第一、二章 Boss 關卡試玩。玩家在 VR 環境中以第一視角扮演自己，並以第三人稱操作主角艾蒙，透過時間神力、時之輪與時之石解開場景機關。
+            </p>
+            <div class="role-list" aria-label="專案職責">
+              <span>企劃主導</span>
+              <span>場景製作</span>
+              <span>部分特效</span>
+              <span>美術協作</span>
+            </div>
+            <p class="project-note">
+              我在團隊中負責企劃主導，並參與場景與部分特效製作，協助建立低多邊、暖色光影與時間機關視覺語言，讓 VR 探索、解謎與角色陪伴感能在同一個場景中成立。
+            </p>
+          </div>
+          <div class="project-gallery" aria-label="調停者作品截圖">
+            <button class="gallery-shot wide magnetic-card" data-shot="0" data-float="10">
+              <img src="mediator-01.jpg" alt="調停者沙漠遺跡與主角艾蒙場景" />
+            </button>
+            <button class="gallery-shot magnetic-card" data-shot="1" data-float="-8">
+              <img src="mediator-02.jpg" alt="調停者室內遺跡與時間機關場景" />
+            </button>
+            <button class="gallery-shot magnetic-card" data-shot="2" data-float="12">
+              <img src="mediator-03.jpg" alt="調停者 VR 視角與時之輪互動畫面" />
+            </button>
+            <button class="gallery-shot magnetic-card" data-shot="3" data-float="-10">
+              <img src="mediator-04.jpg" alt="調停者浮石平台與場景特效" />
+            </button>
+          </div>
+        </article>
+
+        <div class="filters" aria-label="作品分類">
+          <button class="filter active" data-filter="all">全部</button>
+          <button class="filter" data-filter="game">遊戲</button>
+          <button class="filter" data-filter="model">模型</button>
+          <button class="filter" data-filter="character">角色</button>
+          <button class="filter" data-filter="environment">場景</button>
+          <button class="filter" data-filter="prop">道具</button>
+        </div>
+        <div class="work-grid">
+          <article class="work-card" data-category="model">
+            <div class="work-visual model-card-visual">
+              <span>FBX</span>
+            </div>
+            <div>
+              <p>Interactive Model</p>
+              <h3>藥包</h3>
+              <span>可在頁面中用滑鼠旋轉與縮放檢視的 FBX 物件模型作品。</span>
+            </div>
+          </article>
+          <article class="work-card" data-category="game">
+            <div class="work-visual image-visual">
+              <img src="mediator-02.jpg" alt="調停者室內場景截圖" />
+            </div>
+            <div>
+              <p>VR Game Project</p>
+              <h3>《調停者》</h3>
+              <span>企劃主導、場景製作與部分特效，建構 VR 解謎場景與時間機關視覺。</span>
+            </div>
+          </article>
+          <article class="work-card" data-category="environment">
+            <div class="work-visual mountain"></div>
+            <div>
+              <p>Environment Design</p>
+              <h3>Forever Planet</h3>
+              <span>星空、山脈與雲層構成的世界觀主視覺。</span>
+            </div>
+          </article>
+          <article class="work-card" data-category="character">
+            <div class="work-visual character"></div>
+            <div>
+              <p>Character Modeling</p>
+              <h3>Stylized Hero</h3>
+              <span>適合遊戲與動畫展示的風格化角色流程。</span>
+            </div>
+          </article>
+          <article class="work-card" data-category="prop">
+            <div class="work-visual prop"></div>
+            <div>
+              <p>Prop / Hard Surface</p>
+              <h3>Artifact Kit</h3>
+              <span>具功能暗示與材質層次的科幻道具組。</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="section process-section">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Workflow</p>
+            <h2>從輪廓到展示</h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <button class="step active" data-step="0">Concept</button>
+          <button class="step" data-step="1">Model</button>
+          <button class="step" data-step="2">Material</button>
+          <button class="step" data-step="3">Present</button>
+        </div>
+        <div class="process-display">
+          <span id="processNumber">01</span>
+          <h3 id="processTitle">概念與比例</h3>
+          <p id="processText">先建立剪影、視覺重心與世界觀關鍵字，讓後續模型細節都有一致方向。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Ready for 3D visual collaboration.</h2>
+      </div>
+      <a class="button primary" href="mailto:hello@yongheng.design">hello@yongheng.design</a>
+    </footer>
+
+    <div class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="關閉圖片預覽">×</button>
+      <img src="mediator-01.jpg" alt="調停者作品大圖預覽" />
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
         }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-  </style>
-</head>
-<body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <img id="rogue-engine-loading-logo" src="AppData/RogueEngineLogo.svg">
-  <div id="rogue-app"></div>
-  <script>
-    if (global === undefined) {
-      var global = window;
-    }
-    function onRogueScriptLoaded() {
-      var onPlay = window["rogue-engine"].Runtime.onPlay(()=>{
-        document.getElementById("rogue-engine-loading-logo").remove()
-        onPlay.stop();
-      });
-    }
-  </script>
-  <script onload="onRogueScriptLoaded()" src="AppData/build.js"></script>
-</body>
+      }
+    </script>
+    <script src="starfield.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="fbx-viewer.js"></script>
+  </body>
 </html>
