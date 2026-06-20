@@ -3,272 +3,344 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YongHeng | 3D Model Designer</title>
+    <title>Forever Planet Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <div class="cosmic-cursor" aria-hidden="true">
-      <span class="cursor-orbit"></span>
-      <span class="cursor-planet"></span>
-      <span class="cursor-star"></span>
-    </div>
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="YongHeng 首頁">
-        <span class="brand-mark">永</span>
-        <span>YongHeng</span>
-      </a>
-      <nav aria-label="主要導覽">
-        <a href="#work">作品</a>
-        <a href="#model-preview">模型</a>
-        <a href="#process">流程</a>
-        <a href="#contact">聯絡</a>
+    <main class="portfolio-shell" aria-label="作品集網站">
+      <nav class="page-nav" aria-label="頁面導覽">
+        <span class="nav-marker" aria-hidden="true"></span>
+        <button class="nav-dot active" type="button" data-page="0" aria-label="封面"><span>Cover</span></button>
+        <button class="nav-dot" type="button" data-page="1" aria-label="個人介紹"><span>About Me</span></button>
+        <button class="nav-dot" type="button" data-page="2" aria-label="3D 作品展示"><span>3D Works</span></button>
+        <button class="nav-dot" type="button" data-page="3" aria-label="2D 繪圖作品"><span>2D Art</span></button>
+        <button class="nav-dot" type="button" data-page="4" aria-label="專案製作"><span>Project</span></button>
+        <button class="nav-dot" type="button" data-page="5" aria-label="結尾"><span>The End</span></button>
       </nav>
-    </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-art" src="yongheng-profile.png" alt="永恆星 Forever Planet 星空視覺主圖" data-float="18" />
-        <div class="hero-shade" aria-hidden="true"></div>
-        <div class="lyric-fragments" aria-hidden="true">
-          <span data-float="42">永遠は少しだけ暗い</span>
-          <span data-float="-28">FOREVER PLANET</span>
-          <span data-float="34">模型 / 夢 / 逃避行</span>
-          <span data-float="-20">君の輪郭をつくる</span>
-        </div>
-        <div class="hero-layout">
-          <div class="hero-copy">
-            <p class="eyebrow">Abstract 3D Artist / Melancholy World Builder</p>
-            <h1 id="hero-title" data-float="14">YongHeng</h1>
-            <p class="lead">
-              像一首陰天裡的歌，把角色、場景與物件模型做成帶有孤獨感的視覺切片。以抽象輪廓、低飽和光影與互動展示，把 3D 作品轉化成可被凝視的情緒空間。
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#work">查看作品</a>
-              <a class="button ghost" href="#studio">設計能力</a>
+      <section class="vertical-book" id="book">
+        <article class="page cover-page" data-title="封面">
+          <canvas class="stardust-canvas" id="stardustCanvas" aria-hidden="true"></canvas>
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="cover-logo-scene" id="logoParallax">
+            <div class="logo-aura"></div>
+            <div class="logo-depth-stack" aria-label="Forever Planet Logo">
+              <img class="logo-layer logo-layer-back" src="logo/logo3.png" alt="" data-logo-layer data-depth="0.24" />
+              <img class="logo-layer logo-layer-mid" src="logo/logo2.3.png" alt="" data-logo-layer data-depth="0.46" />
+              <img class="logo-layer logo-layer-mid" src="logo/logo2.2.png" alt="" data-logo-layer data-depth="0.56" />
+              <img class="logo-layer logo-layer-mid" src="logo/logo2.1.png" alt="" data-logo-layer data-depth="0.66" />
+              <img class="logo-layer logo-layer-front" src="logo/logo1.png" alt="" />
             </div>
+            <div class="logo-spark spark-a"></div>
+            <div class="logo-spark spark-b"></div>
           </div>
+          <div class="cover-info" aria-label="聯絡資訊">
+            <a class="info-item" href="mailto:yonghenz684@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h16v14H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+              yonghenz684@gmail.com
+            </a>
+            <a class="info-item" href="tel:0956180033">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 4h4l2 5-3 2c1.3 2.5 3.5 4.6 6 6l2-3 5 2v4c0 1.1-.9 2-2 2C10.5 22 2 13.5 2 3c0-1.1.9-2 2-2h3z" />
+              </svg>
+              0956180033
+            </a>
+            <a class="info-item" href="https://www.artstation.com/foreverplanet" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 17h10l-2 4H6z" />
+                <path d="M9 3h5l8 18h-5z" />
+                <path d="M2 13h10l-2-4H4z" />
+              </svg>
+              ArtStation
+            </a>
+          </div>
+        </article>
 
-          <aside class="console-panel" aria-label="即時 3D 展示控制台" data-float="-12">
-            <div class="abstract-boy" aria-hidden="true" data-float="24">
-              <span class="hair"></span>
-              <span class="face"></span>
-              <span class="neck"></span>
-              <span class="coat"></span>
-              <span class="red-thread"></span>
+        <article class="page about-page" data-title="個人介紹">
+          <span class="page-number">02</span>
+          <section class="about-copy">
+            <p class="eyebrow">About Me</p>
+            <h2>About <span>Me</span></h2>
+            <p class="subtitle">關於我</p>
+            <p class="body-copy">
+              專注於 3D 與數位視覺創作，擅長營造情緒、光影與空間氛圍。
+              作品風格偏向未來感、夢境感與靜謐感，喜歡透過畫面傳達孤獨、溫柔與幻想之間的平衡。
+            </p>
+          </section>
+          <section class="profile-visual" aria-label="個人資訊視覺區">
+            <div class="helmet-form"></div>
+          </section>
+          <aside class="skill-panel" aria-label="WORKFLOW">
+            <div class="radar-heading">
+              <span>WORKFLOW</span>
             </div>
-            <div class="panel-topline">
-              <span>INNER SCENE</span>
-              <span class="status-dot"></span>
-            </div>
-            <div id="modelStage" class="model-stage" aria-label="互動式 3D 星球模型"></div>
-            <div class="control-row" aria-label="模型風格切換">
-              <button class="chip active" data-mode="planet">Planet</button>
-              <button class="chip" data-mode="crystal">Crystal</button>
-              <button class="chip" data-mode="wire">Wire</button>
+            <div class="radar-map" aria-label="Blender 92, Substance 3D 78, Unity 72, Photoshop 85, Nomad Sculpt 65">
+              <svg class="radar-chart" viewBox="0 0 240 240" role="img" aria-labelledby="radarTitle">
+                <title id="radarTitle">WORKFLOW visual</title>
+                <g class="radar-grid" aria-hidden="true">
+                  <polygon points="120,104 135.22,115.06 129.4,132.94 110.6,132.94 104.78,115.06" />
+                  <polygon points="120,88 150.43,110.11 138.81,145.89 101.19,145.89 89.57,110.11" />
+                  <polygon points="120,72 165.65,105.17 148.21,158.83 91.79,158.83 74.35,105.17" />
+                  <polygon points="120,56 180.87,100.22 157.62,171.78 82.38,171.78 59.13,100.22" />
+                  <polygon points="120,40 196.08,95.28 167.02,184.72 72.98,184.72 43.92,95.28" />
+                </g>
+                <g class="radar-axis" aria-hidden="true">
+                  <line x1="120" y1="120" x2="120" y2="40" />
+                  <line x1="120" y1="120" x2="196.08" y2="95.28" />
+                  <line x1="120" y1="120" x2="167.02" y2="184.72" />
+                  <line x1="120" y1="120" x2="72.98" y2="184.72" />
+                  <line x1="120" y1="120" x2="43.92" y2="95.28" />
+                </g>
+                <polygon class="radar-field" points="120,46.4 179.36,100.71 153.86,166.6 80.03,175.01 70.55,103.93">
+                  <animate
+                    attributeName="points"
+                    dur="920ms"
+                    fill="freeze"
+                    values="120,120 120,120 120,120 120,120 120,120; 120,46.4 179.36,100.71 153.86,166.6 80.03,175.01 70.55,103.93"
+                  />
+                </polygon>
+                <polyline class="radar-line" points="120,46.4 179.36,100.71 153.86,166.6 80.03,175.01 70.55,103.93 120,46.4" />
+                <g class="radar-points" aria-hidden="true">
+                  <circle cx="120" cy="46.4" r="3.5" />
+                  <circle cx="179.36" cy="100.71" r="3.5" />
+                  <circle cx="153.86" cy="166.6" r="3.5" />
+                  <circle cx="80.03" cy="175.01" r="3.5" />
+                  <circle cx="70.55" cy="103.93" r="3.5" />
+                </g>
+              </svg>
+              <span class="tool-node label-blender">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M14.5 5.2c1.2.7 3.2 2 4.6 3l2.4-.1c4.4 0 7.7 2.9 7.7 6.9 0 4.4-4.1 7.9-9.4 7.9-4.4 0-8-2.4-9-5.7H7.2c-2.2 0-3.8-1.3-3.8-3.1 0-1.7 1.5-3 3.6-3h2.5L5.8 8.4 8 5.8l6.2 5.1 2.4-.9-4.1-2.5 2-2.3Zm5.4 7.1c-2.9 0-5.1 1.7-5.1 3.8s2.2 3.8 5.1 3.8 5.1-1.7 5.1-3.8-2.2-3.8-5.1-3.8Zm-.1 2.1c1.4 0 2.5.8 2.5 1.8s-1.1 1.8-2.5 1.8-2.5-.8-2.5-1.8 1.1-1.8 2.5-1.8Z" /></svg>
+                <em>Blender</em>
+              </span>
+              <span class="tool-node label-substance">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 6h18v20H7z" /><path d="M12 12h8.5c1.8 0 3 1 3 2.6 0 1.1-.6 1.9-1.7 2.3 1.4.4 2.2 1.4 2.2 2.8 0 1.9-1.4 3.3-3.7 3.3H12v-3h7.8c.7 0 1.1-.3 1.1-.9s-.4-.9-1.1-.9H12v-2.8h7c.7 0 1-.3 1-.8s-.3-.8-1-.8h-7v-2.8Z" /></svg>
+                <em>Substance 3D</em>
+              </span>
+              <span class="tool-node label-unity">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.8 26.6 10v12L16 28.2 5.4 22V10L16 3.8Zm0 4.6-5.8 3.4 5.8 3.4 5.8-3.4L16 8.4Zm-7 6.1v6.8l5.8 3.4v-6.8L9 14.5Zm14 0-5.8 3.4v6.8l5.8-3.4v-6.8Z" /></svg>
+                <em>Unity</em>
+              </span>
+              <span class="tool-node label-photoshop">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6h20v20H6z" /><path d="M10.5 21.8V10.2h5.1c2.4 0 3.9 1.4 3.9 3.7s-1.6 3.8-4.1 3.8h-2v4.1h-2.9Zm2.9-6.5h1.7c1 0 1.6-.5 1.6-1.4s-.6-1.4-1.6-1.4h-1.7v2.8Zm7 5.8v-2.3c.8.5 1.7.8 2.6.8.7 0 1-.2 1-.6 0-.5-.4-.6-1.4-.9-1.6-.4-2.4-1.2-2.4-2.6 0-1.8 1.4-2.8 3.6-2.8.9 0 1.8.2 2.4.5v2.2c-.7-.4-1.5-.6-2.3-.6-.6 0-.9.2-.9.6s.4.5 1.3.8c1.7.5 2.6 1.2 2.6 2.8 0 1.8-1.4 2.8-3.8 2.8-1.1 0-2.1-.2-2.7-.7Z" /></svg>
+                <em>Photoshop</em>
+              </span>
+              <span class="tool-node label-nomad">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 26 9.8v12.4L16 28 6 22.2V9.8L16 4Zm-5.8 8.2v8.2h2.7v-4.1l5 4.1h3.9v-8.2h-2.7v4.3l-5.2-4.3h-3.7Z" /></svg>
+                <em>Nomad Sculpt</em>
+              </span>
             </div>
           </aside>
-        </div>
-      </section>
+          <figure class="creator-portrait">
+            <img src="photo.jpg" alt="Yongheng Chang portrait" />
+            <figcaption>
+              <strong>YONGHENG CHANG</strong>
+              <span>3D Artist / Visual Designer</span>
+              <span>Taiwan</span>
+            </figcaption>
+          </figure>
+        </article>
 
-      <section id="studio" class="section studio-section">
-        <div class="section-heading">
-          <p class="eyebrow">Design Focus</p>
-          <h2>把模型做成像歌曲一樣有殘響的世界</h2>
-        </div>
-        <div class="skill-grid">
-          <article class="skill-tile">
-            <span class="tile-index">01</span>
-            <h3>3D Modeling</h3>
-            <p>從剪影與姿態開始，讓角色、場景與道具保有清楚輪廓，也留下情緒的空白。</p>
-          </article>
-          <article class="skill-tile">
-            <span class="tile-index">02</span>
-            <h3>Look Development</h3>
-            <p>用冷色陰影、微弱暖光與材質噪點，把灰模推向更接近插畫與音樂影像的氣質。</p>
-          </article>
-          <article class="skill-tile">
-            <span class="tile-index">03</span>
-            <h3>Interactive Display</h3>
-            <p>讓滑鼠視差、模型旋轉與圖像切換形成觀看節奏，作品集不只是圖片排列。</p>
-          </article>
-        </div>
-      </section>
+        <article class="page works-page" data-title="3D 作品展示">
+          <span class="page-number">03</span>
+          <div class="split-copy">
+            <p class="eyebrow">Selected</p>
+            <h2>3D <span>Works</span></h2>
+            <p class="subtitle">作品精選</p>
+            <ul class="work-menu" aria-label="3D 作品分類">
+              <li class="active" data-work-subtitle="0"><strong>01</strong><span>Props<br />道具展示</span></li>
+              <li data-work-subtitle="1"><strong>02</strong><span>Scene<br />場景設計</span></li>
+              <li data-work-subtitle="2"><strong>03</strong><span>Character<br />角色作品</span></li>
+            </ul>
+          </div>
+          <section class="works-substage" aria-label="3D Works sections">
+            <article class="works-panel active" data-work-panel="0">
+              <div class="model-gallery" aria-label="3D 道具展示">
+                <article class="model-stage sketchfab-stage">
+                  <iframe
+                    title="Axe 3D Model"
+                    src="https://sketchfab.com/models/1d5a3272c2844db7b2edecb8cfa334dc/embed?autostart=1&preload=1&ui_theme=dark&ui_infos=0&ui_watermark=0"
+                    allow="autoplay; fullscreen; xr-spatial-tracking"
+                    allowfullscreen
+                    mozallowfullscreen="true"
+                    webkitallowfullscreen="true"
+                    loading="lazy"
+                  ></iframe>
+                  <div class="stage-caption">
+                    <span>01 / Props</span>
+                    <strong>Axe</strong>
+                  </div>
+                </article>
+                <article class="model-stage sketchfab-stage">
+                  <iframe
+                    title="Shield 3D Model"
+                    src="https://sketchfab.com/models/3b9cf5f4e5644874a7f1b20a2f6297ff/embed?autostart=0&preload=1&ui_theme=dark&ui_infos=0&ui_watermark=0"
+                    allow="autoplay; fullscreen; xr-spatial-tracking"
+                    allowfullscreen
+                    mozallowfullscreen="true"
+                    webkitallowfullscreen="true"
+                    loading="lazy"
+                  ></iframe>
+                  <div class="stage-caption">
+                    <span>01 / Props</span>
+                    <strong>Shield</strong>
+                  </div>
+                </article>
+              </div>
+            </article>
 
-      <section id="model-preview" class="section model-preview-section">
-        <div class="section-heading compact">
-          <div>
-            <p class="eyebrow">Interactive FBX Preview</p>
-            <h2>藥包</h2>
-          </div>
-          <p class="section-caption">滑鼠拖曳旋轉，滾輪縮放，右鍵拖曳平移。</p>
-        </div>
-        <article class="fbx-showcase">
-          <div class="fbx-viewer" id="fbxViewer" aria-label="藥包 FBX 互動模型預覽">
-            <div class="viewer-status" id="fbxStatus">Loading FBX model...</div>
-          </div>
-          <div class="fbx-info">
-            <p class="eyebrow">3D Asset</p>
-            <h3>藥包</h3>
-            <p>
-              這個作品以物件模型展示為核心，呈現藥包的造型輪廓、比例與材質細節。此區塊直接載入 FBX 檔，讓觀看者能以滑鼠檢視模型的空間關係。
+            <article class="works-panel" data-work-panel="1">
+              <div class="scene-topic-grid">
+                <figure class="scene-topic">
+                  <div class="topic-slides">
+                    <img src="3Dworks/場景/Temple_1.png" alt="Temple scene" />
+                    <img src="3Dworks/場景/Temple_idol_1.png" alt="Temple idol 1" />
+                    <img src="3Dworks/場景/Temple_idol_2.png" alt="Temple idol 2" />
+                  </div>
+                  <figcaption><span>Scene 01</span><strong>Temple</strong></figcaption>
+                </figure>
+                <figure class="scene-topic">
+                  <div class="topic-slides">
+                    <img src="3Dworks/場景/BackStage_1.png" alt="BackStage 1" />
+                    <img src="3Dworks/場景/BackStage_2.png" alt="BackStage 2" />
+                  </div>
+                  <figcaption><span>Scene 02</span><strong>BackStage</strong></figcaption>
+                </figure>
+                <figure class="scene-topic">
+                  <div class="topic-slides">
+                    <img src="3Dworks/場景/NightMarlet_1.png" alt="Night Market 1" />
+                    <img src="3Dworks/場景/NightMarket_2.webp" alt="Night Market 2" />
+                    <img src="3Dworks/場景/NightMarket_3.webp" alt="Night Market 3" />
+                  </div>
+                  <figcaption><span>Scene 03</span><strong>Night Market</strong></figcaption>
+                </figure>
+                <figure class="scene-topic">
+                  <div class="topic-slides">
+                    <img src="3Dworks/場景/Office_1.webp" alt="Office 1" />
+                    <img src="3Dworks/場景/Office_2.webp" alt="Office 2" />
+                  </div>
+                  <figcaption><span>Scene 04</span><strong>Office</strong></figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="works-panel" data-work-panel="2">
+              <div class="character-works-grid">
+                <figure class="character-work featured">
+                  <img src="3Dworks/角色/Sports game characters.png" alt="Stylized sports game characters" />
+                  <figcaption><span>Character</span><strong>Sports Player</strong></figcaption>
+                </figure>
+                <figure class="character-work">
+                  <img src="3Dworks/角色/Lion Character.png" alt="Stylized lion character" />
+                  <figcaption>Lion Character</figcaption>
+                </figure>
+                <figure class="character-work">
+                  <img src="3Dworks/角色/historical roles1.png" alt="Historical role character 1" />
+                  <figcaption>Historical Role 01</figcaption>
+                </figure>
+                <figure class="character-work">
+                  <img src="3Dworks/角色/historical roles2.png" alt="Historical role character 2" />
+                  <figcaption>Historical Role 02</figcaption>
+                </figure>
+              </div>
+            </article>
+          </section>
+        </article>
+
+        <article class="page art-page" data-title="2D 繪圖作品">
+          <span class="page-number">04</span>
+          <div class="split-copy">
+            <p class="eyebrow">Drawing</p>
+            <h2>2D <span>Artworks</span></h2>
+            <p class="subtitle">概念設計 / 插畫 / 草圖</p>
+            <p class="body-copy">
+              整理角色插畫、封面視覺與風格練習。右側可切換作品，主圖保留完整畫面比例，方便檢視細節。
             </p>
-            <div class="role-list">
-              <span>FBX Model</span>
-              <span>Mouse Orbit</span>
-              <span>Realtime Preview</span>
+          </div>
+          <div class="art-gallery" aria-label="2D 作品展示">
+            <figure class="art-preview">
+              <img id="artPreviewImage" src="2D/艾蒙.png" alt="艾蒙" />
+              <figcaption id="artPreviewTitle">艾蒙</figcaption>
+            </figure>
+            <div class="art-thumbs" aria-label="2D 作品縮圖">
+              <button class="art-thumb active" type="button" data-title="艾蒙" data-src="2D/艾蒙.png">
+                <img src="2D/艾蒙.png" alt="艾蒙" />
+              </button>
+              <button class="art-thumb" type="button" data-title="織女" data-src="2D/織女.png" data-gif="2D/織女.gif">
+                <img src="2D/織女.png" alt="織女" />
+              </button>
+              <button class="art-thumb" type="button" data-title="哈利波特" data-src="2D/哈利波特.png">
+                <img src="2D/哈利波特.png" alt="哈利波特" />
+              </button>
+              <button class="art-thumb" type="button" data-title="小海豹" data-src="2D/小海豹3.JPG.jpg">
+                <img src="2D/小海豹3.JPG.jpg" alt="小海豹" />
+              </button>
+              <button class="art-thumb" type="button" data-title="封面設計" data-src="2D/封面(字).jpg">
+                <img src="2D/封面(字).jpg" alt="封面設計" />
+              </button>
             </div>
           </div>
         </article>
-      </section>
 
-      <section id="work" class="section work-section">
-        <div class="section-heading compact">
-          <div>
-            <p class="eyebrow">Selected Works</p>
-            <h2>作品與專案經歷</h2>
-          </div>
-        </div>
-
-        <article class="featured-project">
-          <div class="project-copy">
-            <p class="eyebrow">VR Game / 60919 南同俱樂部</p>
-            <h2>《調停者》</h2>
-            <p>
-              由南臺科技大學學生團隊「60919 南同俱樂部」打造的第三人稱 VR 解謎遊戲，於放視大賞 2023 開放第一、二章 Boss 關卡試玩。玩家在 VR 環境中以第一視角扮演自己，並以第三人稱操作主角艾蒙，透過時間神力、時之輪與時之石解開場景機關。
-            </p>
-            <div class="role-list" aria-label="專案職責">
-              <span>企劃主導</span>
-              <span>場景製作</span>
-              <span>部分特效</span>
-              <span>美術協作</span>
-            </div>
-            <p class="project-note">
-              我在團隊中負責企劃主導，並參與場景與部分特效製作，協助建立低多邊、暖色光影與時間機關視覺語言，讓 VR 探索、解謎與角色陪伴感能在同一個場景中成立。
-            </p>
-          </div>
-          <div class="project-gallery" aria-label="調停者作品截圖">
-            <button class="gallery-shot wide magnetic-card" data-shot="0" data-float="10">
-              <img src="mediator-01.jpg" alt="調停者沙漠遺跡與主角艾蒙場景" />
-            </button>
-            <button class="gallery-shot magnetic-card" data-shot="1" data-float="-8">
-              <img src="mediator-02.jpg" alt="調停者室內遺跡與時間機關場景" />
-            </button>
-            <button class="gallery-shot magnetic-card" data-shot="2" data-float="12">
-              <img src="mediator-03.jpg" alt="調停者 VR 視角與時之輪互動畫面" />
-            </button>
-            <button class="gallery-shot magnetic-card" data-shot="3" data-float="-10">
-              <img src="mediator-04.jpg" alt="調停者浮石平台與場景特效" />
-            </button>
+        <article class="page project-page" data-title="專案製作">
+          <span class="page-number">05</span>
+          <header class="page-heading">
+            <p class="eyebrow">Production</p>
+            <h2>Project <span>Making</span></h2>
+            <p class="subtitle">專案製作</p>
+          </header>
+          <div class="project-layout">
+            <section class="project-stage">
+              <div class="project-frame">
+                <span>01</span>
+                <h3>Concept</h3>
+              </div>
+              <div class="project-frame">
+                <span>02</span>
+                <h3>Modeling</h3>
+              </div>
+              <div class="project-frame">
+                <span>03</span>
+                <h3>Lookdev</h3>
+              </div>
+            </section>
+            <aside class="project-notes">
+              <h3>Workflow</h3>
+              <p>整理從參考蒐集、造型草稿、模型製作、材質貼圖、燈光測試到最終輸出的專案流程。</p>
+              <ol class="project-steps">
+                <li><strong>Research</strong><span>參考、風格與需求拆解</span></li>
+                <li><strong>Blockout</strong><span>大型、比例與視覺重心</span></li>
+                <li><strong>Asset Build</strong><span>模型、UV、貼圖與材質</span></li>
+                <li><strong>Render</strong><span>燈光、構圖與後期整理</span></li>
+              </ol>
+            </aside>
           </div>
         </article>
 
-        <div class="filters" aria-label="作品分類">
-          <button class="filter active" data-filter="all">全部</button>
-          <button class="filter" data-filter="game">遊戲</button>
-          <button class="filter" data-filter="model">模型</button>
-          <button class="filter" data-filter="character">角色</button>
-          <button class="filter" data-filter="environment">場景</button>
-          <button class="filter" data-filter="prop">道具</button>
-        </div>
-        <div class="work-grid">
-          <article class="work-card" data-category="model">
-            <div class="work-visual model-card-visual">
-              <span>FBX</span>
+        <article class="page end-page" data-title="結尾">
+          <span class="page-number">06</span>
+          <div class="end-orbit"></div>
+          <section class="end-content">
+            <h2>THE <span>END</span></h2>
+            <p>Thank you for watching</p>
+            <div class="end-contact">
+              <span>Contact</span>
+              <a href="tel:0956180033">0956180033</a>
             </div>
-            <div>
-              <p>Interactive Model</p>
-              <h3>藥包</h3>
-              <span>可在頁面中用滑鼠旋轉與縮放檢視的 FBX 物件模型作品。</span>
-            </div>
-          </article>
-          <article class="work-card" data-category="game">
-            <div class="work-visual image-visual">
-              <img src="mediator-02.jpg" alt="調停者室內場景截圖" />
-            </div>
-            <div>
-              <p>VR Game Project</p>
-              <h3>《調停者》</h3>
-              <span>企劃主導、場景製作與部分特效，建構 VR 解謎場景與時間機關視覺。</span>
-            </div>
-          </article>
-          <article class="work-card" data-category="environment">
-            <div class="work-visual mountain"></div>
-            <div>
-              <p>Environment Design</p>
-              <h3>Forever Planet</h3>
-              <span>星空、山脈與雲層構成的世界觀主視覺。</span>
-            </div>
-          </article>
-          <article class="work-card" data-category="character">
-            <div class="work-visual character"></div>
-            <div>
-              <p>Character Modeling</p>
-              <h3>Stylized Hero</h3>
-              <span>適合遊戲與動畫展示的風格化角色流程。</span>
-            </div>
-          </article>
-          <article class="work-card" data-category="prop">
-            <div class="work-visual prop"></div>
-            <div>
-              <p>Prop / Hard Surface</p>
-              <h3>Artifact Kit</h3>
-              <span>具功能暗示與材質層次的科幻道具組。</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="process" class="section process-section">
-        <div class="section-heading compact">
-          <div>
-            <p class="eyebrow">Workflow</p>
-            <h2>從輪廓到展示</h2>
-          </div>
-        </div>
-        <div class="timeline">
-          <button class="step active" data-step="0">Concept</button>
-          <button class="step" data-step="1">Model</button>
-          <button class="step" data-step="2">Material</button>
-          <button class="step" data-step="3">Present</button>
-        </div>
-        <div class="process-display">
-          <span id="processNumber">01</span>
-          <h3 id="processTitle">概念與比例</h3>
-          <p id="processText">先建立剪影、視覺重心與世界觀關鍵字，讓後續模型細節都有一致方向。</p>
-        </div>
+          </section>
+        </article>
       </section>
     </main>
 
-    <footer id="contact" class="site-footer">
-      <div>
-        <p class="eyebrow">Contact</p>
-        <h2>Ready for 3D visual collaboration.</h2>
-      </div>
-      <a class="button primary" href="mailto:hello@yongheng.design">hello@yongheng.design</a>
-    </footer>
-
-    <div class="lightbox" aria-hidden="true">
-      <button class="lightbox-close" type="button" aria-label="關閉圖片預覽">×</button>
-      <img src="mediator-01.jpg" alt="調停者作品大圖預覽" />
-    </div>
-
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
-        }
-      }
-    </script>
-    <script src="starfield.js"></script>
     <script src="script.js"></script>
-    <script type="module" src="fbx-viewer.js"></script>
   </body>
 </html>

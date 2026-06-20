@@ -1,0 +1,14 @@
+page01
+
+page02
+主標:ABOUT ME
+副標:3D Generalist / Visual Artist
+
+內文:
+平常大部分時間都在研究 3D、材質跟畫面氛圍。
+
+喜歡偏安靜、未來感、帶一點孤獨氣氛的視覺，
+也很享受把腦中的畫面慢慢實現出來。
+
+目前主要使用 Blender、Substance 3D、Photoshop 與 Unity 進行創作。
+
