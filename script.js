@@ -14,18 +14,22 @@ const workSubtitleItems = [...document.querySelectorAll("[data-work-subtitle]")]
 const workPanels = [...document.querySelectorAll("[data-work-panel]")];
 const sceneTopics = [...document.querySelectorAll(".scene-topic")];
 const landscapeButton = document.querySelector(".landscape-button");
+const orientationStatus = document.querySelector(".orientation-status");
 
 async function openLandscapeView() {
+  if (!screen.orientation?.lock) {
+    if (orientationStatus) orientationStatus.textContent = "此瀏覽器無法自動旋轉，請手動將手機轉為橫向。";
+    return;
+  }
+
   try {
     if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
       await document.documentElement.requestFullscreen();
     }
 
-    if (screen.orientation?.lock) {
-      await screen.orientation.lock("landscape");
-    }
+    await screen.orientation.lock("landscape");
   } catch {
-    // iOS Safari and some embedded browsers do not allow orientation locking.
+    if (orientationStatus) orientationStatus.textContent = "無法鎖定方向；請允許全螢幕後手動轉為橫向。";
   }
 }
 

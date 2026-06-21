@@ -1755,6 +1755,12 @@ h2 span {
     font-size: 0.9rem;
   }
 
+  .orientation-status {
+    min-height: 1.2em;
+    color: var(--cyan);
+    font-size: 0.78rem;
+  }
+
   .portfolio-shell { visibility: hidden; }
 }
 

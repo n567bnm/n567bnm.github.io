@@ -1,0 +1,9 @@
+{
+  "name": "Forever Planet Portfolio",
+  "short_name": "Forever Planet",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#070a11",
+  "theme_color": "#070a11"
+}
