@@ -1743,6 +1743,18 @@ h2 span {
     letter-spacing: 0.08em;
   }
 
+  .landscape-button {
+    justify-self: center;
+    margin-top: 12px;
+    padding: 11px 18px;
+    border: 1px solid var(--cyan);
+    background: rgba(159, 219, 255, 0.12);
+    color: var(--text);
+    cursor: pointer;
+    font-family: "Noto Sans TC", system-ui, sans-serif;
+    font-size: 0.9rem;
+  }
+
   .portfolio-shell { visibility: hidden; }
 }
 

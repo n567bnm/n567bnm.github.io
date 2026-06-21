@@ -13,6 +13,23 @@ const artThumbs = [...document.querySelectorAll(".art-thumb")];
 const workSubtitleItems = [...document.querySelectorAll("[data-work-subtitle]")];
 const workPanels = [...document.querySelectorAll("[data-work-panel]")];
 const sceneTopics = [...document.querySelectorAll(".scene-topic")];
+const landscapeButton = document.querySelector(".landscape-button");
+
+async function openLandscapeView() {
+  try {
+    if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+      await document.documentElement.requestFullscreen();
+    }
+
+    if (screen.orientation?.lock) {
+      await screen.orientation.lock("landscape");
+    }
+  } catch {
+    // iOS Safari and some embedded browsers do not allow orientation locking.
+  }
+}
+
+landscapeButton?.addEventListener("click", openLandscapeView);
 
 document.documentElement.classList.add("js-ready");
 
