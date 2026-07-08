@@ -1,0 +1,24 @@
+調停者
+
+製作日期2023/06/09
+
+簡述
+
+畢業VR遊戲製作。一款以時間為核心要素的第三人稱VR遊戲。
+首次擔任故事編寫、關卡設計和場景製作。
+
+使用技術
+
+Unity
+
+Notion
+
+Mediator
+
+Blender
+
+Substance Painter
+
+Procreat
+
+VR

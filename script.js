@@ -13,6 +13,9 @@ const artThumbs = [...document.querySelectorAll(".art-thumb")];
 const workSubtitleItems = [...document.querySelectorAll("[data-work-subtitle]")];
 const workPanels = [...document.querySelectorAll("[data-work-panel]")];
 const sceneTopics = [...document.querySelectorAll(".scene-topic")];
+const projectTabs = [...document.querySelectorAll("[data-project-tab]")];
+const projectPanels = [...document.querySelectorAll("[data-project-panel]")];
+const projectDetails = [...document.querySelectorAll("[data-project-detail]")];
 const landscapeButton = document.querySelector(".landscape-button");
 const orientationStatus = document.querySelector(".orientation-status");
 
@@ -42,6 +45,7 @@ let wheelLocked = false;
 let artAutoTimer = null;
 let artAutoPaused = false;
 let activeWorkSubsection = 0;
+let activeProject = null;
 let deviceMotionEnabled = false;
 const sceneManualTimers = new WeakMap();
 
@@ -74,6 +78,43 @@ function setWorkSubsection(index) {
 
 workSubtitleItems.forEach((item) => {
   item.addEventListener("click", () => setWorkSubsection(Number(item.dataset.workSubtitle)));
+});
+
+function setProject(index) {
+  const requestedIndex = Math.max(0, Math.min(index, projectPanels.length - 1));
+  const nextIndex = activeProject === requestedIndex ? null : requestedIndex;
+  activeProject = nextIndex;
+  const hasActiveProject = nextIndex !== null;
+  document.documentElement.classList.toggle("project-expanded", hasActiveProject);
+
+  projectTabs.forEach((tab) => {
+    const isActive = hasActiveProject && Number(tab.dataset.projectTab) === nextIndex;
+    tab.classList.toggle("active", isActive);
+    tab.setAttribute("aria-expanded", String(isActive));
+  });
+  projectPanels.forEach((panel) => {
+    const isActive = hasActiveProject && Number(panel.dataset.projectPanel) === nextIndex;
+    panel.classList.toggle("active", isActive);
+    panel.classList.toggle("is-collapsed", hasActiveProject && !isActive);
+  });
+  projectDetails.forEach((detail) => {
+    detail.classList.toggle("active", hasActiveProject && Number(detail.dataset.projectDetail) === nextIndex);
+  });
+}
+
+projectTabs.forEach((tab) => {
+  tab.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setProject(Number(tab.dataset.projectTab));
+  });
+});
+
+projectPanels.forEach((panel) => {
+  panel.addEventListener("click", (event) => {
+    if (!panel.classList.contains("active")) return;
+    if (event.target.closest("a")) return;
+    setProject(Number(panel.dataset.projectPanel));
+  });
 });
 
 function setSceneSlide(topic, index) {

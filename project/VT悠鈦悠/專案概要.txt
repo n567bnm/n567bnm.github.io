@@ -1,0 +1,28 @@
+專案名稱:Vtuber_悠鈦悠
+
+製作日期:
+2024/06/12
+
+簡述:
+悠鈦悠是一個手工藝狂魔,最擅長金屬工藝。
+初嘗3D VT模型製作流程,包含概念設計、角色製作、場景製作。
+
+
+
+使用技術:
+
+Blender
+
+VRoid
+
+Motion capture
+
+Unity
+
+Warudo
+
+fSpy
+
+copilot
+
+StableProjectorz
