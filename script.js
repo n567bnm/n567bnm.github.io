@@ -18,6 +18,7 @@ const projectPanels = [...document.querySelectorAll("[data-project-panel]")];
 const projectDetails = [...document.querySelectorAll("[data-project-detail]")];
 const landscapeButton = document.querySelector(".landscape-button");
 const orientationStatus = document.querySelector(".orientation-status");
+const WORKS_PAGE_INDEX = 1;
 
 async function openLandscapeView() {
   if (!screen.orientation?.lock) {
@@ -272,7 +273,7 @@ book.addEventListener(
     if (direction === 0) return;
 
     wheelLocked = true;
-    if (activePage === 2 && workPanels.length) {
+    if (activePage === WORKS_PAGE_INDEX && workPanels.length) {
       const nextSubsection = activeWorkSubsection + direction;
       if (nextSubsection >= 0 && nextSubsection < workPanels.length) {
         setWorkSubsection(nextSubsection);
@@ -291,11 +292,11 @@ book.addEventListener(
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowDown" || event.key === "PageDown") {
-    if (activePage === 2 && activeWorkSubsection < workPanels.length - 1) setWorkSubsection(activeWorkSubsection + 1);
+    if (activePage === WORKS_PAGE_INDEX && activeWorkSubsection < workPanels.length - 1) setWorkSubsection(activeWorkSubsection + 1);
     else goToPage(activePage + 1);
   }
   if (event.key === "ArrowUp" || event.key === "PageUp") {
-    if (activePage === 2 && activeWorkSubsection > 0) setWorkSubsection(activeWorkSubsection - 1);
+    if (activePage === WORKS_PAGE_INDEX && activeWorkSubsection > 0) setWorkSubsection(activeWorkSubsection - 1);
     else goToPage(activePage - 1);
   }
 });

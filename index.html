@@ -50,11 +50,10 @@
       <nav class="page-nav" aria-label="頁面導覽">
         <span class="nav-marker" aria-hidden="true"></span>
         <button class="nav-dot active" type="button" data-page="0" aria-label="封面"><span>Cover</span></button>
-        <button class="nav-dot" type="button" data-page="1" aria-label="個人介紹"><span>About Me</span></button>
-        <button class="nav-dot" type="button" data-page="2" aria-label="3D 作品展示"><span>3D Works</span></button>
-        <button class="nav-dot" type="button" data-page="3" aria-label="2D 繪圖作品"><span>2D Art</span></button>
-        <button class="nav-dot" type="button" data-page="4" aria-label="專案製作"><span>Project</span></button>
-        <button class="nav-dot" type="button" data-page="5" aria-label="結尾"><span>The End</span></button>
+        <button class="nav-dot" type="button" data-page="1" aria-label="3D 作品展示"><span>3D Works</span></button>
+        <button class="nav-dot" type="button" data-page="2" aria-label="2D 繪圖作品"><span>2D Art</span></button>
+        <button class="nav-dot" type="button" data-page="3" aria-label="專案製作"><span>Project</span></button>
+        <button class="nav-dot" type="button" data-page="4" aria-label="結尾"><span>The End</span></button>
       </nav>
 
       <section class="vertical-book" id="book">
@@ -99,92 +98,8 @@
           </div>
         </article>
 
-        <article class="page about-page" data-title="個人介紹">
-          <span class="page-number">02</span>
-          <section class="about-copy">
-            <p class="eyebrow">About Me</p>
-            <h2>About <span>Me</span></h2>
-            <p class="subtitle">關於我</p>
-            <p class="body-copy">
-              專注於 3D 與數位視覺創作，擅長營造情緒、光影與空間氛圍。
-              作品風格偏向未來感、夢境感與靜謐感，喜歡透過畫面傳達孤獨、溫柔與幻想之間的平衡。
-            </p>
-          </section>
-          <section class="profile-visual" aria-label="個人資訊視覺區">
-            <div class="helmet-form"></div>
-          </section>
-          <aside class="skill-panel" aria-label="WORKFLOW">
-            <div class="radar-heading">
-              <span>WORKFLOW</span>
-            </div>
-            <div class="radar-map" aria-label="Blender 92, Substance 3D 78, Unity 72, Photoshop 85, Nomad Sculpt 65">
-              <svg class="radar-chart" viewBox="0 0 240 240" role="img" aria-labelledby="radarTitle">
-                <title id="radarTitle">WORKFLOW visual</title>
-                <g class="radar-grid" aria-hidden="true">
-                  <polygon points="120,104 135.22,115.06 129.4,132.94 110.6,132.94 104.78,115.06" />
-                  <polygon points="120,88 150.43,110.11 138.81,145.89 101.19,145.89 89.57,110.11" />
-                  <polygon points="120,72 165.65,105.17 148.21,158.83 91.79,158.83 74.35,105.17" />
-                  <polygon points="120,56 180.87,100.22 157.62,171.78 82.38,171.78 59.13,100.22" />
-                  <polygon points="120,40 196.08,95.28 167.02,184.72 72.98,184.72 43.92,95.28" />
-                </g>
-                <g class="radar-axis" aria-hidden="true">
-                  <line x1="120" y1="120" x2="120" y2="40" />
-                  <line x1="120" y1="120" x2="196.08" y2="95.28" />
-                  <line x1="120" y1="120" x2="167.02" y2="184.72" />
-                  <line x1="120" y1="120" x2="72.98" y2="184.72" />
-                  <line x1="120" y1="120" x2="43.92" y2="95.28" />
-                </g>
-                <polygon class="radar-field" points="120,46.4 179.36,100.71 153.86,166.6 80.03,175.01 70.55,103.93">
-                  <animate
-                    attributeName="points"
-                    dur="920ms"
-                    fill="freeze"
-                    values="120,120 120,120 120,120 120,120 120,120; 120,46.4 179.36,100.71 153.86,166.6 80.03,175.01 70.55,103.93"
-                  />
-                </polygon>
-                <polyline class="radar-line" points="120,46.4 179.36,100.71 153.86,166.6 80.03,175.01 70.55,103.93 120,46.4" />
-                <g class="radar-points" aria-hidden="true">
-                  <circle cx="120" cy="46.4" r="3.5" />
-                  <circle cx="179.36" cy="100.71" r="3.5" />
-                  <circle cx="153.86" cy="166.6" r="3.5" />
-                  <circle cx="80.03" cy="175.01" r="3.5" />
-                  <circle cx="70.55" cy="103.93" r="3.5" />
-                </g>
-              </svg>
-              <span class="tool-node label-blender">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M14.5 5.2c1.2.7 3.2 2 4.6 3l2.4-.1c4.4 0 7.7 2.9 7.7 6.9 0 4.4-4.1 7.9-9.4 7.9-4.4 0-8-2.4-9-5.7H7.2c-2.2 0-3.8-1.3-3.8-3.1 0-1.7 1.5-3 3.6-3h2.5L5.8 8.4 8 5.8l6.2 5.1 2.4-.9-4.1-2.5 2-2.3Zm5.4 7.1c-2.9 0-5.1 1.7-5.1 3.8s2.2 3.8 5.1 3.8 5.1-1.7 5.1-3.8-2.2-3.8-5.1-3.8Zm-.1 2.1c1.4 0 2.5.8 2.5 1.8s-1.1 1.8-2.5 1.8-2.5-.8-2.5-1.8 1.1-1.8 2.5-1.8Z" /></svg>
-                <em>Blender</em>
-              </span>
-              <span class="tool-node label-substance">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 6h18v20H7z" /><path d="M12 12h8.5c1.8 0 3 1 3 2.6 0 1.1-.6 1.9-1.7 2.3 1.4.4 2.2 1.4 2.2 2.8 0 1.9-1.4 3.3-3.7 3.3H12v-3h7.8c.7 0 1.1-.3 1.1-.9s-.4-.9-1.1-.9H12v-2.8h7c.7 0 1-.3 1-.8s-.3-.8-1-.8h-7v-2.8Z" /></svg>
-                <em>Substance 3D</em>
-              </span>
-              <span class="tool-node label-unity">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.8 26.6 10v12L16 28.2 5.4 22V10L16 3.8Zm0 4.6-5.8 3.4 5.8 3.4 5.8-3.4L16 8.4Zm-7 6.1v6.8l5.8 3.4v-6.8L9 14.5Zm14 0-5.8 3.4v6.8l5.8-3.4v-6.8Z" /></svg>
-                <em>Unity</em>
-              </span>
-              <span class="tool-node label-photoshop">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6h20v20H6z" /><path d="M10.5 21.8V10.2h5.1c2.4 0 3.9 1.4 3.9 3.7s-1.6 3.8-4.1 3.8h-2v4.1h-2.9Zm2.9-6.5h1.7c1 0 1.6-.5 1.6-1.4s-.6-1.4-1.6-1.4h-1.7v2.8Zm7 5.8v-2.3c.8.5 1.7.8 2.6.8.7 0 1-.2 1-.6 0-.5-.4-.6-1.4-.9-1.6-.4-2.4-1.2-2.4-2.6 0-1.8 1.4-2.8 3.6-2.8.9 0 1.8.2 2.4.5v2.2c-.7-.4-1.5-.6-2.3-.6-.6 0-.9.2-.9.6s.4.5 1.3.8c1.7.5 2.6 1.2 2.6 2.8 0 1.8-1.4 2.8-3.8 2.8-1.1 0-2.1-.2-2.7-.7Z" /></svg>
-                <em>Photoshop</em>
-              </span>
-              <span class="tool-node label-nomad">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 26 9.8v12.4L16 28 6 22.2V9.8L16 4Zm-5.8 8.2v8.2h2.7v-4.1l5 4.1h3.9v-8.2h-2.7v4.3l-5.2-4.3h-3.7Z" /></svg>
-                <em>Nomad Sculpt</em>
-              </span>
-            </div>
-          </aside>
-          <figure class="creator-portrait">
-            <img src="photo.jpg" alt="Yongheng Chang portrait" />
-            <figcaption>
-              <strong>YONGHENG CHANG</strong>
-              <span>3D Artist / Visual Designer</span>
-              <span>Taiwan</span>
-            </figcaption>
-          </figure>
-        </article>
-
         <article class="page works-page" data-title="3D 作品展示">
-          <span class="page-number">03</span>
+          <span class="page-number">02</span>
           <div class="split-copy">
             <p class="eyebrow">Selected</p>
             <h2>3D <span>Works</span></h2>
@@ -290,7 +205,7 @@
         </article>
 
         <article class="page art-page" data-title="2D 繪圖作品">
-          <span class="page-number">04</span>
+          <span class="page-number">03</span>
           <div class="split-copy">
             <p class="eyebrow">Drawing</p>
             <h2>2D <span>Artworks</span></h2>
@@ -325,6 +240,7 @@
         </article>
 
         <article class="page project-page" data-title="專案製作">
+          <span class="page-number">04</span>
           <header class="page-heading">
             <h2>Project <span>Making</span></h2>
             <p class="subtitle">專案製作</p>
@@ -434,7 +350,7 @@
         </article>
 
         <article class="page end-page" data-title="結尾">
-          <span class="page-number">06</span>
+          <span class="page-number">05</span>
           <div class="end-orbit"></div>
           <section class="end-content">
             <h2>THE <span>END</span></h2>
