@@ -197,6 +197,7 @@ projectGalleryClose?.addEventListener("click", (event) => {
 });
 
 projectGalleryOverlay?.addEventListener("click", (event) => {
+  event.stopPropagation();
   if (event.target === projectGalleryOverlay) closeProjectGallery();
 });
 
