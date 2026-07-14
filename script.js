@@ -16,6 +16,9 @@ const sceneTopics = [...document.querySelectorAll(".scene-topic")];
 const projectTabs = [...document.querySelectorAll("[data-project-tab]")];
 const projectPanels = [...document.querySelectorAll("[data-project-panel]")];
 const projectDetails = [...document.querySelectorAll("[data-project-detail]")];
+const projectVideos = [...document.querySelectorAll(".project-video-player")];
+const projectPage = document.querySelector(".project-page");
+const projectLayout = document.querySelector(".project-layout");
 const landscapeButton = document.querySelector(".landscape-button");
 const orientationStatus = document.querySelector(".orientation-status");
 const WORKS_PAGE_INDEX = 1;
@@ -60,6 +63,7 @@ function setActivePage(index) {
   activePage = index;
   document.documentElement.style.setProperty("--active-page", index);
   dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
+  if (!pages[index]?.classList.contains("project-page")) setProject(null);
 }
 
 dots.forEach((dot) => {
@@ -81,9 +85,18 @@ workSubtitleItems.forEach((item) => {
   item.addEventListener("click", () => setWorkSubsection(Number(item.dataset.workSubtitle)));
 });
 
+function pauseProjectVideos(exceptIndex = null) {
+  projectVideos.forEach((video) => {
+    const panel = video.closest("[data-project-panel]");
+    const panelIndex = panel ? Number(panel.dataset.projectPanel) : null;
+    if (exceptIndex !== null && panelIndex === exceptIndex) return;
+    video.pause();
+  });
+}
+
 function setProject(index) {
-  const requestedIndex = Math.max(0, Math.min(index, projectPanels.length - 1));
-  const nextIndex = activeProject === requestedIndex ? null : requestedIndex;
+  const nextIndex = index === null ? null : Math.max(0, Math.min(index, projectPanels.length - 1));
+  pauseProjectVideos(nextIndex);
   activeProject = nextIndex;
   const hasActiveProject = nextIndex !== null;
   document.documentElement.classList.toggle("project-expanded", hasActiveProject);
@@ -106,16 +119,28 @@ function setProject(index) {
 projectTabs.forEach((tab) => {
   tab.addEventListener("click", (event) => {
     event.stopPropagation();
-    setProject(Number(tab.dataset.projectTab));
+    const tabIndex = Number(tab.dataset.projectTab);
+    if (activeProject !== tabIndex) setProject(tabIndex);
   });
 });
 
 projectPanels.forEach((panel) => {
-  panel.addEventListener("click", (event) => {
-    if (!panel.classList.contains("active")) return;
-    if (event.target.closest("a")) return;
-    setProject(Number(panel.dataset.projectPanel));
+  const closeButton = document.createElement("button");
+  closeButton.className = "project-close-button";
+  closeButton.type = "button";
+  closeButton.setAttribute("aria-label", "關閉專案");
+  closeButton.textContent = "×";
+  closeButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setProject(null);
   });
+  panel.append(closeButton);
+});
+
+projectPage?.addEventListener("click", (event) => {
+  if (activeProject === null) return;
+  if (projectLayout?.contains(event.target)) return;
+  setProject(null);
 });
 
 function setSceneSlide(topic, index) {

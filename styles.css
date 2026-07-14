@@ -1707,6 +1707,7 @@ h2 span {
 .project-expanded .project-page {
   gap: 0;
   align-content: stretch;
+  padding: clamp(14px, 1.8vw, 28px) clamp(28px, 3.8vw, 72px);
 }
 
 .project-expanded .project-page .page-heading {
@@ -1727,13 +1728,29 @@ h2 span {
 }
 
 .project-expanded .project-layout {
-  height: calc(100vh - clamp(48px, 7vw, 96px));
+  height: calc(100vh - clamp(28px, 3.6vw, 56px));
 }
 
 .project-card {
-  border-color: transparent;
-  background: transparent;
-  box-shadow: none;
+  border-color: rgba(246, 248, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(8, 12, 21, 0.46);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  transform: translateY(0);
+  transition:
+    grid-template-columns 0.64s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
+}
+
+.project-layout:not(:has(.project-card.active)) {
+  gap: clamp(20px, 3.6vw, 68px);
+}
+
+.project-layout:not(:has(.project-card.active)) .project-card:hover {
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.34), 0 0 28px rgba(159, 219, 255, 0.12);
+  transform: translateY(-8px);
 }
 
 .project-layout:not(:has(.project-card.active)) .project-card {
@@ -1745,6 +1762,7 @@ h2 span {
   grid-template-columns: minmax(0, 1fr);
   flex: 2.4 1 0;
   border-color: rgba(246, 248, 255, 0.16);
+  border-radius: 0;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
   min-width: 0;
 }
@@ -1769,6 +1787,7 @@ h2 span {
   min-height: min(64vh, 680px);
   line-height: 0;
   background: transparent;
+  border-radius: inherit;
 }
 
 .project-cover-button::after {
@@ -1844,15 +1863,15 @@ h2 span {
 .project-expand-panel {
   position: relative;
   z-index: 1;
-  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  grid-template-columns: minmax(210px, 0.34fr) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) 84px;
   grid-template-areas:
     "detail video"
     "film film";
-  gap: clamp(18px, 2vw, 28px);
+  gap: clamp(14px, 1.6vw, 24px);
   height: 100%;
   min-height: 0;
-  padding: clamp(20px, 2.5vw, 34px);
+  padding: clamp(14px, 1.6vw, 24px);
   background:
     linear-gradient(90deg, rgba(5, 7, 12, 0.34), rgba(5, 7, 12, 0.06)),
     rgba(7, 10, 17, 0.04);
@@ -1882,7 +1901,8 @@ h2 span {
 .project-video {
   grid-area: video;
   position: relative;
-  align-self: stretch;
+  align-self: center;
+  justify-self: center;
   min-width: 0;
   min-height: 0;
   border: 1px solid rgba(246, 248, 255, 0.14);
@@ -1894,9 +1914,41 @@ h2 span {
 
 .project-video-player {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: min(100%, calc((100vh - clamp(170px, 16vh, 230px)) * 16 / 9));
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
+}
+
+.project-close-button {
+  position: absolute;
+  z-index: 4;
+  top: clamp(10px, 1.2vw, 18px);
+  right: clamp(10px, 1.2vw, 18px);
+  display: none;
+  place-items: center;
+  width: 38px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(246, 248, 255, 0.26);
+  border-radius: 50%;
+  background: rgba(5, 7, 12, 0.68);
+  color: rgba(246, 248, 255, 0.9);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32);
+}
+
+.project-card.active .project-close-button {
+  display: grid;
+}
+
+.project-close-button:hover {
+  border-color: rgba(159, 219, 255, 0.78);
+  color: var(--text);
 }
 
 .project-video-link img {
