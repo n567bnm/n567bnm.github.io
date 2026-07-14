@@ -16,7 +16,7 @@ const sceneTopics = [...document.querySelectorAll(".scene-topic")];
 const projectTabs = [...document.querySelectorAll("[data-project-tab]")];
 const projectPanels = [...document.querySelectorAll("[data-project-panel]")];
 const projectDetails = [...document.querySelectorAll("[data-project-detail]")];
-const projectVideos = [...document.querySelectorAll(".project-video-player")];
+const projectVideos = [...document.querySelectorAll(".project-video-player, .project-video-frame iframe")];
 const projectPage = document.querySelector(".project-page");
 const projectLayout = document.querySelector(".project-layout");
 const projectFilmStrips = [...document.querySelectorAll(".project-film-strip")];
@@ -94,7 +94,11 @@ function pauseProjectVideos(exceptIndex = null) {
     const panel = video.closest("[data-project-panel]");
     const panelIndex = panel ? Number(panel.dataset.projectPanel) : null;
     if (exceptIndex !== null && panelIndex === exceptIndex) return;
-    video.pause();
+    if (video.tagName === "IFRAME") {
+      video.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*");
+      return;
+    }
+    video.pause?.();
   });
 }
 
