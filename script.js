@@ -19,6 +19,10 @@ const projectDetails = [...document.querySelectorAll("[data-project-detail]")];
 const projectVideos = [...document.querySelectorAll(".project-video-player")];
 const projectPage = document.querySelector(".project-page");
 const projectLayout = document.querySelector(".project-layout");
+const projectFilmStrips = [...document.querySelectorAll(".project-film-strip")];
+const projectGalleryOverlay = document.querySelector("[data-project-gallery-overlay]");
+const projectGalleryGrid = document.querySelector("[data-project-gallery-grid]");
+const projectGalleryClose = document.querySelector("[data-project-gallery-close]");
 const landscapeButton = document.querySelector(".landscape-button");
 const orientationStatus = document.querySelector(".orientation-status");
 const WORKS_PAGE_INDEX = 1;
@@ -94,7 +98,43 @@ function pauseProjectVideos(exceptIndex = null) {
   });
 }
 
+function closeProjectGallery() {
+  if (!projectGalleryOverlay || !projectGalleryGrid) return;
+  projectGalleryOverlay.classList.remove("active");
+  projectGalleryOverlay.setAttribute("aria-hidden", "true");
+  projectGalleryGrid.replaceChildren();
+  document.documentElement.classList.remove("project-gallery-open");
+}
+
+function openProjectGallery(strip) {
+  if (!projectGalleryOverlay || !projectGalleryGrid) return;
+
+  const images = [...strip.querySelectorAll("img")]
+    .filter((image) => image.getAttribute("alt"))
+    .map((image) => ({
+      src: image.currentSrc || image.src,
+      alt: image.getAttribute("alt") || "",
+    }));
+
+  if (!images.length) return;
+
+  pauseProjectVideos();
+  projectGalleryGrid.replaceChildren(
+    ...images.map((image) => {
+      const galleryImage = document.createElement("img");
+      galleryImage.src = image.src;
+      galleryImage.alt = image.alt;
+      galleryImage.loading = "lazy";
+      return galleryImage;
+    }),
+  );
+  projectGalleryOverlay.classList.add("active");
+  projectGalleryOverlay.setAttribute("aria-hidden", "false");
+  document.documentElement.classList.add("project-gallery-open");
+}
+
 function setProject(index) {
+  closeProjectGallery();
   const nextIndex = index === null ? null : Math.max(0, Math.min(index, projectPanels.length - 1));
   pauseProjectVideos(nextIndex);
   activeProject = nextIndex;
@@ -135,6 +175,33 @@ projectPanels.forEach((panel) => {
     setProject(null);
   });
   panel.append(closeButton);
+});
+
+projectFilmStrips.forEach((strip) => {
+  strip.setAttribute("role", "button");
+  strip.setAttribute("tabindex", "0");
+  strip.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openProjectGallery(strip);
+  });
+  strip.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openProjectGallery(strip);
+  });
+});
+
+projectGalleryClose?.addEventListener("click", (event) => {
+  event.stopPropagation();
+  closeProjectGallery();
+});
+
+projectGalleryOverlay?.addEventListener("click", (event) => {
+  if (event.target === projectGalleryOverlay) closeProjectGallery();
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeProjectGallery();
 });
 
 projectPage?.addEventListener("click", (event) => {
