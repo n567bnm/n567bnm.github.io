@@ -200,6 +200,10 @@ projectGalleryOverlay?.addEventListener("click", (event) => {
   if (event.target === projectGalleryOverlay) closeProjectGallery();
 });
 
+projectGalleryOverlay?.addEventListener("wheel", (event) => {
+  event.stopPropagation();
+}, { passive: true });
+
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeProjectGallery();
 });
@@ -358,6 +362,7 @@ book.addEventListener("scroll", () => {
 book.addEventListener(
   "wheel",
   (event) => {
+    if (document.documentElement.classList.contains("project-gallery-open")) return;
     event.preventDefault();
     if (wheelLocked) return;
 
