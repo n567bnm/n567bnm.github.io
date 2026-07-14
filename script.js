@@ -200,9 +200,15 @@ projectGalleryOverlay?.addEventListener("click", (event) => {
   if (event.target === projectGalleryOverlay) closeProjectGallery();
 });
 
-projectGalleryOverlay?.addEventListener("wheel", (event) => {
-  event.stopPropagation();
-}, { passive: true });
+document.addEventListener("wheel", (event) => {
+  if (!document.documentElement.classList.contains("project-gallery-open")) return;
+  if (!projectGalleryOverlay?.contains(event.target)) return;
+
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  projectGalleryOverlay.scrollTop += event.deltaY;
+  projectGalleryOverlay.scrollLeft += event.deltaX;
+}, { capture: true, passive: false });
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeProjectGallery();
@@ -362,7 +368,10 @@ book.addEventListener("scroll", () => {
 book.addEventListener(
   "wheel",
   (event) => {
-    if (document.documentElement.classList.contains("project-gallery-open")) return;
+    if (document.documentElement.classList.contains("project-gallery-open")) {
+      event.preventDefault();
+      return;
+    }
     event.preventDefault();
     if (wheelLocked) return;
 
