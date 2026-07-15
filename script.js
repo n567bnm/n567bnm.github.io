@@ -138,8 +138,8 @@ function initStardust() {
       homeY: y,
       vx: (Math.random() - 0.5) * 0.16,
       vy: (Math.random() - 0.5) * 0.16,
-      size: Math.random() * 2 + 0.7,
-      alpha: Math.random() * 0.6 + 0.25,
+      size: Math.random() * 2.4 + 0.75,
+      alpha: Math.random() * 0.7 + 0.3,
       twinkle: Math.random() * Math.PI * 2,
     };
   }
@@ -162,14 +162,14 @@ function initStardust() {
   function drawParticle(particle) {
     const pulse = Math.sin(particle.twinkle) * 0.28 + 0.72;
     const radius = particle.size * pulse;
-    const gradient = ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, radius * 4);
+    const gradient = ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, radius * 5);
     gradient.addColorStop(0, `rgba(237, 239, 245, ${particle.alpha})`);
-    gradient.addColorStop(0.4, `rgba(159, 176, 255, ${particle.alpha * 0.3})`);
+    gradient.addColorStop(0.35, `rgba(159, 176, 255, ${particle.alpha * 0.34})`);
     gradient.addColorStop(1, "rgba(159, 176, 255, 0)");
 
     ctx.fillStyle = gradient;
     ctx.beginPath();
-    ctx.arc(particle.x, particle.y, radius * 4, 0, Math.PI * 2);
+    ctx.arc(particle.x, particle.y, radius * 5, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -227,6 +227,145 @@ function initStardust() {
   window.addEventListener("resize", resizeStardust);
   resizeStardust();
   animateStardust();
+}
+
+// Logo 煙霧光暈：多團柔光緩慢流動，並隨滑鼠方向整片飄移
+const hazeCanvas = document.querySelector("#logoHaze");
+
+if (hazeCanvas && hero) {
+  initLogoHaze();
+}
+
+function initLogoHaze() {
+  const ctx = hazeCanvas.getContext("2d");
+  const blobs = [];
+  const BLOB_COUNT = 6;
+  // 霧色：白、淡藍紫、淡紫
+  const hazeColors = [
+    [237, 239, 245],
+    [159, 176, 255],
+    [179, 168, 240],
+  ];
+  const flow = { x: 0, y: 0, targetX: 0, targetY: 0 };
+  let width = 0;
+  let height = 0;
+  let time = Math.random() * 100;
+
+  function buildBlobs() {
+    blobs.length = 0;
+    for (let index = 0; index < BLOB_COUNT; index += 1) {
+      // 沿著 logo 的橫向帶狀區域散布
+      const angle = (index / BLOB_COUNT) * Math.PI * 2;
+      blobs.push({
+        homeX: width * 0.5 + Math.cos(angle) * width * (0.07 + Math.random() * 0.1),
+        homeY: height * 0.5 + Math.sin(angle) * height * (0.05 + Math.random() * 0.09),
+        x: 0,
+        y: 0,
+        radius: Math.min(width, height) * (0.11 + Math.random() * 0.09),
+        alpha: 0.08 + Math.random() * 0.08,
+        color: hazeColors[index % hazeColors.length],
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.4 + Math.random() * 0.5,
+        depth: 0.35 + Math.random() * 0.65,
+      });
+    }
+    // 中央常駐大光暈：撐起整體暈染感
+    blobs.push({
+      homeX: width * 0.5,
+      homeY: height * 0.52,
+      x: 0,
+      y: 0,
+      radius: Math.min(width, height) * 0.46,
+      alpha: 0.12,
+      color: [200, 214, 255],
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.3,
+      depth: 0.22,
+    });
+
+    blobs.forEach((blob) => {
+      blob.x = blob.homeX;
+      blob.y = blob.homeY;
+    });
+  }
+
+  function resizeHaze() {
+    const rect = hazeCanvas.getBoundingClientRect();
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    hazeCanvas.width = Math.floor(width * pixelRatio);
+    hazeCanvas.height = Math.floor(height * pixelRatio);
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    buildBlobs();
+  }
+
+  function drawHaze() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.globalCompositeOperation = "lighter";
+
+    for (const blob of blobs) {
+      const breathe = Math.sin(time * blob.speed + blob.phase);
+      const targetX =
+        blob.homeX +
+        Math.sin(time * blob.speed + blob.phase) * width * 0.03 +
+        flow.x * blob.depth * width * 0.07;
+      const targetY =
+        blob.homeY +
+        Math.cos(time * blob.speed * 0.8 + blob.phase * 1.7) * height * 0.04 +
+        flow.y * blob.depth * height * 0.06;
+
+      // 緩慢逼近目標位置，形成煙霧的延遲飄移感
+      blob.x += (targetX - blob.x) * 0.045;
+      blob.y += (targetY - blob.y) * 0.045;
+
+      const radius = blob.radius * (1 + breathe * 0.18);
+      const alpha = blob.alpha * (0.8 + breathe * 0.2);
+      const [r, g, b] = blob.color;
+      const gradient = ctx.createRadialGradient(blob.x, blob.y, 0, blob.x, blob.y, radius);
+      gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha})`);
+      gradient.addColorStop(0.55, `rgba(${r}, ${g}, ${b}, ${alpha * 0.4})`);
+      gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(blob.x, blob.y, radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function animateHaze() {
+    if (!isHeroVisible()) {
+      requestAnimationFrame(animateHaze);
+      return;
+    }
+
+    time += 0.008;
+    // 滑鼠方向緩慢滲入霧的流向
+    flow.x += (flow.targetX - flow.x) * 0.03;
+    flow.y += (flow.targetY - flow.y) * 0.03;
+    drawHaze();
+    requestAnimationFrame(animateHaze);
+  }
+
+  window.addEventListener("mousemove", (event) => {
+    flow.targetX = (event.clientX / window.innerWidth - 0.5) * 2;
+    flow.targetY = (event.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  document.documentElement.addEventListener("mouseleave", () => {
+    flow.targetX = 0;
+    flow.targetY = 0;
+  });
+
+  window.addEventListener("resize", resizeHaze);
+  resizeHaze();
+
+  if (prefersReducedMotion) {
+    drawHaze(); // 靜態光暈：不動畫，但保留塗層效果
+  } else {
+    animateHaze();
+  }
 }
 
 // 技能條：捲動到 About 區塊時緩慢展開

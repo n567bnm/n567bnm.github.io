@@ -196,6 +196,10 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  /* 筆畫發光描邊，重現舊版的暈染 */
+  filter:
+    drop-shadow(0 0 14px rgba(159, 176, 255, 0.42))
+    drop-shadow(0 0 42px rgba(159, 176, 255, 0.18));
   transform: translate3d(
     calc(var(--logo-x, 0px) * var(--layer-depth, 0)),
     calc(var(--logo-y, 0px) * var(--layer-depth, 0)),
@@ -210,6 +214,20 @@ a {
   transform: none;
   transition: none;
   will-change: auto;
+}
+
+/* 煙霧光暈：程式繪製的柔光層，疊在 logo 上並隨滑鼠飄動 */
+.logo-haze {
+  position: absolute;
+  inset: -28% -18%;
+  z-index: 4;
+  width: 136%;
+  height: 156%;
+  pointer-events: none;
+  /* 線性加亮（Linear Dodge / Add）；不支援 plus-lighter 的瀏覽器退回濾色 */
+  mix-blend-mode: screen;
+  mix-blend-mode: plus-lighter;
+  filter: blur(16px);
 }
 
 /* 一條細軌道弧線，呼應封面設計 */
