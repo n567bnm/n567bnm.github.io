@@ -2,426 +2,308 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>張詠恆｜遊戲美術作品集</title>
     <meta name="description" content="張詠恆的遊戲美術作品集，收錄 3D 作品、2D 繪圖與專案製作。" />
-    <meta name="image" content="https://n567bnm.github.io/images/portfolio-cover.jpg" />
-    <meta itemprop="name" content="張詠恆｜遊戲美術作品集" />
-    <meta itemprop="description" content="張詠恆的遊戲美術作品集，收錄 3D 作品、2D 繪圖與專案製作。" />
-    <meta itemprop="image" content="https://n567bnm.github.io/images/portfolio-cover.jpg" />
     <link rel="canonical" href="https://n567bnm.github.io/" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="張詠恆｜遊戲美術作品集" />
     <meta property="og:title" content="張詠恆｜遊戲美術作品集" />
     <meta property="og:description" content="張詠恆的遊戲美術作品集，收錄 3D 作品、2D 繪圖與專案製作。" />
     <meta property="og:url" content="https://n567bnm.github.io/" />
     <meta property="og:image" content="https://n567bnm.github.io/images/portfolio-cover.jpg" />
-    <meta property="og:image:url" content="https://n567bnm.github.io/images/portfolio-cover.jpg" />
-    <meta property="og:image:secure_url" content="https://n567bnm.github.io/images/portfolio-cover.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="張詠恆遊戲美術作品集社群分享縮圖" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://n567bnm.github.io/" />
-    <meta name="twitter:title" content="張詠恆｜遊戲美術作品集" />
-    <meta name="twitter:description" content="張詠恆的遊戲美術作品集，收錄 3D 作品、2D 繪圖與專案製作。" />
-    <meta name="twitter:image" content="https://n567bnm.github.io/images/portfolio-cover.jpg" />
-    <meta name="twitter:image:alt" content="張詠恆遊戲美術作品集社群分享縮圖" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
-    <link rel="manifest" href="site.webmanifest" />
   </head>
   <body>
-    <div class="orientation-notice" role="status" aria-live="polite">
-      <div class="orientation-notice__icon" aria-hidden="true"></div>
-      <p>請將手機轉為橫向瀏覽</p>
-      <span>This portfolio is designed for landscape viewing.</span>
-      <button class="landscape-button" type="button">以橫向全螢幕開啟</button>
-      <span class="orientation-status" aria-live="polite"></span>
-    </div>
-    <main class="portfolio-shell" aria-label="作品集網站">
-      <nav class="page-nav" aria-label="頁面導覽">
-        <span class="nav-marker" aria-hidden="true"></span>
-        <button class="nav-dot active" type="button" data-page="0" aria-label="封面"><span>Cover</span></button>
-        <button class="nav-dot" type="button" data-page="1" aria-label="3D 作品展示"><span>3D Works</span></button>
-        <button class="nav-dot" type="button" data-page="2" aria-label="2D 繪圖作品"><span>2D Art</span></button>
-        <button class="nav-dot" type="button" data-page="3" aria-label="專案製作"><span>Project</span></button>
-        <button class="nav-dot" type="button" data-page="4" aria-label="結尾"><span>The End</span></button>
+    <header class="site-header">
+      <a class="brand" href="#top">Forever Planet</a>
+      <nav aria-label="主要導覽">
+        <a href="#about">About</a>
+        <a href="#works-3d">3D Works</a>
+        <a href="#works-2d">2D Art</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
+    </header>
 
-      <section class="vertical-book" id="book">
-        <article class="page cover-page" data-title="封面">
-          <canvas class="stardust-canvas" id="stardustCanvas" aria-hidden="true"></canvas>
-          <div class="orbit orbit-a"></div>
-          <div class="orbit orbit-b"></div>
-          <div class="cover-logo-scene" id="logoParallax">
-            <div class="logo-aura"></div>
-            <div class="logo-depth-stack" aria-label="Forever Planet Logo">
-              <img class="logo-layer logo-layer-back" src="logo/logo3.png" alt="" data-logo-layer data-depth="0.24" />
-              <img class="logo-layer logo-layer-mid" src="logo/logo2.3.png" alt="" data-logo-layer data-depth="0.46" />
-              <img class="logo-layer logo-layer-mid" src="logo/logo2.2.png" alt="" data-logo-layer data-depth="0.56" />
-              <img class="logo-layer logo-layer-mid" src="logo/logo2.1.png" alt="" data-logo-layer data-depth="0.66" />
-              <img class="logo-layer logo-layer-front" src="logo/logo1.png" alt="" />
-            </div>
-            <div class="logo-spark spark-a"></div>
-            <div class="logo-spark spark-b"></div>
+    <main id="top">
+      <!-- 01 Cover -->
+      <section class="hero">
+        <canvas class="stardust-canvas" id="stardustCanvas" aria-hidden="true"></canvas>
+        <p class="page-num">01</p>
+        <div class="hero-center">
+          <span class="hero-orbit" aria-hidden="true"></span>
+          <div class="hero-logo-scene" id="logoParallax" role="img" aria-label="詠恆星 Forever Planet">
+            <img class="logo-layer" src="logo/logo3.png" alt="" data-depth="0.24" />
+            <img class="logo-layer" src="logo/logo2.3.png" alt="" data-depth="0.42" />
+            <img class="logo-layer" src="logo/logo2.2.png" alt="" data-depth="0.52" />
+            <img class="logo-layer" src="logo/logo2.1.png" alt="" data-depth="0.62" />
+            <img class="logo-layer logo-layer-front" src="logo/logo1.png" alt="" />
           </div>
-          <div class="cover-info" aria-label="聯絡資訊">
-            <a class="info-item" href="mailto:yonghenz684@gmail.com">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 5h16v14H4z" />
-                <path d="m4 7 8 6 8-6" />
-              </svg>
-              yonghenz684@gmail.com
-            </a>
-            <a class="info-item" href="tel:0956180033">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 4h4l2 5-3 2c1.3 2.5 3.5 4.6 6 6l2-3 5 2v4c0 1.1-.9 2-2 2C10.5 22 2 13.5 2 3c0-1.1.9-2 2-2h3z" />
-              </svg>
-              0956180033
-            </a>
-            <a class="info-item" href="https://www.artstation.com/foreverplanet" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 17h10l-2 4H6z" />
-                <path d="M9 3h5l8 18h-5z" />
-                <path d="M2 13h10l-2-4H4z" />
-              </svg>
-              ArtStation
-            </a>
+        </div>
+        <div class="hero-foot">
+          <div>
+            <p class="hero-role">3D Generalist / CGI Artist</p>
+            <p class="hero-skills">Blender / Rendering / Lookdev / UV / Texture / Lighting</p>
+          </div>
+          <p class="hero-brand">Forever Planet</p>
+        </div>
+      </section>
+
+      <!-- 02 About Me -->
+      <section class="section" id="about">
+        <div class="about-grid">
+          <div class="about-copy">
+            <header class="section-head">
+              <p class="page-num">02</p>
+              <h2>About <span>Me</span></h2>
+              <p class="subtitle">關於我</p>
+            </header>
+            <p class="about-text">
+              我是張詠恆，熱愛 3D 創作，擅長將想法轉化為高品質的視覺作品。
+              熟悉建模、材質、燈光與渲染等完整流程，
+              追求細節與畫面品質，並享受解決問題的過程。
+              持續學習新技術，期待在團隊中創造更大的價值。
+            </p>
+            <div class="skill-list" aria-label="常用工具">
+              <div class="skill"><span>Blender</span><i class="bar"><i style="--level: 92%"></i></i></div>
+              <div class="skill"><span>Photoshop</span><i class="bar"><i style="--level: 85%"></i></i></div>
+              <div class="skill"><span>Substance 3D</span><i class="bar"><i style="--level: 78%"></i></i></div>
+              <div class="skill"><span>Unity</span><i class="bar"><i style="--level: 72%"></i></i></div>
+              <div class="skill"><span>Nomad Sculpt</span><i class="bar"><i style="--level: 65%"></i></i></div>
+            </div>
+          </div>
+          <figure class="about-photo">
+            <img src="photo.jpg" alt="張詠恆" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- 03 3D Works -->
+      <section class="section" id="works-3d">
+        <header class="section-head">
+          <p class="page-num">03</p>
+          <h2>3D <span>Works</span></h2>
+          <p class="subtitle">作品精選</p>
+        </header>
+
+        <h3 class="group-title"><em>01</em>Props<span>道具展示</span></h3>
+        <div class="embed-grid">
+          <figure class="embed-card">
+            <iframe
+              title="Axe 3D Model"
+              src="https://sketchfab.com/models/1d5a3272c2844db7b2edecb8cfa334dc/embed?preload=1&ui_theme=dark&ui_infos=0&ui_watermark=0"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+            <figcaption>Axe</figcaption>
+          </figure>
+          <figure class="embed-card">
+            <iframe
+              title="Shield 3D Model"
+              src="https://sketchfab.com/models/3b9cf5f4e5644874a7f1b20a2f6297ff/embed?preload=1&ui_theme=dark&ui_infos=0&ui_watermark=0"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+            <figcaption>Shield</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="group-title"><em>02</em>Scene<span>場景設計</span></h3>
+        <div class="work-grid">
+          <figure><img src="3Dworks/場景/Temple_1.png" alt="Temple 場景" loading="lazy" /><figcaption>Temple</figcaption></figure>
+          <figure><img src="3Dworks/場景/Temple_idol_1.png" alt="Temple 神像 1" loading="lazy" /><figcaption>Temple — Idol</figcaption></figure>
+          <figure><img src="3Dworks/場景/Temple_idol_2.png" alt="Temple 神像 2" loading="lazy" /><figcaption>Temple — Idol</figcaption></figure>
+          <figure><img src="3Dworks/場景/BackStage_1.png" alt="後台場景 1" loading="lazy" /><figcaption>BackStage</figcaption></figure>
+          <figure><img src="3Dworks/場景/BackStage_2.png" alt="後台場景 2" loading="lazy" /><figcaption>BackStage</figcaption></figure>
+          <figure><img src="3Dworks/場景/NightMarlet_1.png" alt="夜市場景 1" loading="lazy" /><figcaption>Night Market</figcaption></figure>
+          <figure><img src="3Dworks/場景/NightMarket_2.webp" alt="夜市場景 2" loading="lazy" /><figcaption>Night Market</figcaption></figure>
+          <figure><img src="3Dworks/場景/NightMarket_3.webp" alt="夜市場景 3" loading="lazy" /><figcaption>Night Market</figcaption></figure>
+          <figure><img src="3Dworks/場景/Office_1.webp" alt="辦公室場景 1" loading="lazy" /><figcaption>Office</figcaption></figure>
+          <figure><img src="3Dworks/場景/Office_2.webp" alt="辦公室場景 2" loading="lazy" /><figcaption>Office</figcaption></figure>
+        </div>
+
+        <h3 class="group-title"><em>03</em>Character<span>角色作品</span></h3>
+        <div class="work-grid characters">
+          <figure><img src="3Dworks/角色/Sports game characters.png" alt="運動遊戲角色" loading="lazy" /><figcaption>Sports Player</figcaption></figure>
+          <figure><img src="3Dworks/角色/Lion Character.png" alt="獅子角色" loading="lazy" /><figcaption>Lion Character</figcaption></figure>
+          <figure><img src="3Dworks/角色/historical roles1.png" alt="歷史角色 1" loading="lazy" /><figcaption>Historical Role 01</figcaption></figure>
+          <figure><img src="3Dworks/角色/historical roles2.png" alt="歷史角色 2" loading="lazy" /><figcaption>Historical Role 02</figcaption></figure>
+        </div>
+      </section>
+
+      <!-- 04 2D Artworks -->
+      <section class="section" id="works-2d">
+        <header class="section-head">
+          <p class="page-num">04</p>
+          <h2>2D <span>Artworks</span></h2>
+          <p class="subtitle">概念設計 / 插畫 / 草圖</p>
+        </header>
+        <div class="work-grid art">
+          <figure><img src="2D/艾蒙.png" alt="艾蒙" loading="lazy" /><figcaption>艾蒙</figcaption></figure>
+          <figure><img src="2D/織女.png" data-full="2D/織女.gif" alt="織女" loading="lazy" /><figcaption>織女</figcaption></figure>
+          <figure><img src="2D/哈利波特.png" alt="哈利波特" loading="lazy" /><figcaption>哈利波特</figcaption></figure>
+          <figure><img src="2D/小海豹3.JPG.jpg" alt="小海豹" loading="lazy" /><figcaption>小海豹</figcaption></figure>
+          <figure><img src="2D/封面(字).jpg" alt="封面設計" loading="lazy" /><figcaption>封面設計</figcaption></figure>
+        </div>
+      </section>
+
+      <!-- 05 Projects -->
+      <section class="section" id="projects">
+        <header class="section-head">
+          <p class="page-num">05</p>
+          <h2>Project <span>Making</span></h2>
+          <p class="subtitle">專案製作</p>
+        </header>
+
+        <article class="project">
+          <div class="project-info">
+            <p class="project-date">2023.06</p>
+            <h3>調停者</h3>
+            <p>畢業 VR 遊戲製作。一款以時間為核心要素的第三人稱 VR 遊戲，負責故事編寫、關卡設計與場景製作。</p>
+            <ul class="tags">
+              <li>Unity</li><li>VR</li><li>Blender</li><li>Substance Painter</li>
+            </ul>
+            <a class="text-link" href="https://gnn.gamer.com.tw/detail.php?sn=250542" target="_blank" rel="noreferrer">巴哈姆特報導 ↗</a>
+          </div>
+          <div class="project-media">
+            <div class="video-frame">
+              <iframe
+                title="調停者影片"
+                src="https://www.youtube-nocookie.com/embed/6Jq17VpJY7o?rel=0&modestbranding=1&playsinline=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="thumb-grid">
+              <img src="project/調停者/遊戲畫面/gameplay-02-original-demo.gif" alt="調停者遊戲畫面 Demo" loading="lazy" />
+              <img src="project/調停者/遊戲畫面/gameplay-03-time-puzzle.gif" alt="調停者時間解謎畫面" loading="lazy" />
+              <img src="project/調停者/遊戲畫面/level-02-exterior-color.png" alt="調停者室外關卡" loading="lazy" />
+              <img src="project/調停者/遊戲畫面/level-04-interior-color.png" alt="調停者室內關卡" loading="lazy" />
+              <img src="project/調停者/遊戲畫面/gameplay-09-ruins.jpg" alt="調停者遺跡場景" loading="lazy" />
+              <img src="project/調停者/遊戲畫面/gameplay-10-temple.jpg" alt="調停者神殿場景" loading="lazy" />
+              <img src="project/調停者/遊戲畫面/game-asset-01-time-cube.webp" alt="調停者時間方塊模型" loading="lazy" />
+              <img src="project/調停者/企劃與關卡設計/design-01-world-concept.webp" alt="調停者世界觀企劃" loading="lazy" />
+              <img src="project/調停者/企劃與關卡設計/design-04-level-sketch.webp" alt="調停者關卡草圖" loading="lazy" />
+              <img src="project/調停者/企劃與關卡設計/design-06-flowchart-red.webp" alt="調停者流程圖" loading="lazy" />
+            </div>
           </div>
         </article>
 
-        <article class="page works-page" data-title="3D 作品展示">
-          <div class="split-copy">
-            <p class="eyebrow">Selected</p>
-            <h2>3D <span>Works</span></h2>
-            <p class="subtitle">作品精選</p>
-            <ul class="work-menu" aria-label="3D 作品分類">
-              <li class="active" data-work-subtitle="0"><strong>01</strong><span>Props<br />道具展示</span></li>
-              <li data-work-subtitle="1"><strong>02</strong><span>Scene<br />場景設計</span></li>
-              <li data-work-subtitle="2"><strong>03</strong><span>Character<br />角色作品</span></li>
+        <article class="project">
+          <div class="project-info">
+            <p class="project-date">2024.06</p>
+            <h3>VT 悠鈦悠</h3>
+            <p>以手工藝與金屬工藝為角色核心，初次完整嘗試 3D VT 模型流程，包含概念設計、角色製作與場景製作。</p>
+            <ul class="tags">
+              <li>Blender</li><li>VRoid</li><li>Unity</li><li>Warudo</li><li>Motion Capture</li>
             </ul>
           </div>
-          <section class="works-substage" aria-label="3D Works sections">
-            <article class="works-panel active" data-work-panel="0">
-              <div class="model-gallery" aria-label="3D 道具展示">
-                <article class="model-stage sketchfab-stage">
-                  <iframe
-                    title="Axe 3D Model"
-                    src="https://sketchfab.com/models/1d5a3272c2844db7b2edecb8cfa334dc/embed?autostart=1&preload=1&ui_theme=dark&ui_infos=0&ui_watermark=0"
-                    allow="autoplay; fullscreen; xr-spatial-tracking"
-                    allowfullscreen
-                    mozallowfullscreen="true"
-                    webkitallowfullscreen="true"
-                    loading="lazy"
-                  ></iframe>
-                  <div class="stage-caption">
-                    <span>01 / Props</span>
-                    <strong>Axe</strong>
-                  </div>
-                </article>
-                <article class="model-stage sketchfab-stage">
-                  <iframe
-                    title="Shield 3D Model"
-                    src="https://sketchfab.com/models/3b9cf5f4e5644874a7f1b20a2f6297ff/embed?autostart=0&preload=1&ui_theme=dark&ui_infos=0&ui_watermark=0"
-                    allow="autoplay; fullscreen; xr-spatial-tracking"
-                    allowfullscreen
-                    mozallowfullscreen="true"
-                    webkitallowfullscreen="true"
-                    loading="lazy"
-                  ></iframe>
-                  <div class="stage-caption">
-                    <span>01 / Props</span>
-                    <strong>Shield</strong>
-                  </div>
-                </article>
-              </div>
-            </article>
-
-            <article class="works-panel" data-work-panel="1">
-              <div class="scene-topic-grid">
-                <figure class="scene-topic">
-                  <div class="topic-slides">
-                    <img src="3Dworks/場景/Temple_1.png" alt="Temple scene" />
-                    <img src="3Dworks/場景/Temple_idol_1.png" alt="Temple idol 1" />
-                    <img src="3Dworks/場景/Temple_idol_2.png" alt="Temple idol 2" />
-                  </div>
-                  <figcaption><span>Scene 01</span><strong>Temple</strong></figcaption>
-                </figure>
-                <figure class="scene-topic">
-                  <div class="topic-slides">
-                    <img src="3Dworks/場景/BackStage_1.png" alt="BackStage 1" />
-                    <img src="3Dworks/場景/BackStage_2.png" alt="BackStage 2" />
-                  </div>
-                  <figcaption><span>Scene 02</span><strong>BackStage</strong></figcaption>
-                </figure>
-                <figure class="scene-topic">
-                  <div class="topic-slides">
-                    <img src="3Dworks/場景/NightMarlet_1.png" alt="Night Market 1" />
-                    <img src="3Dworks/場景/NightMarket_2.webp" alt="Night Market 2" />
-                    <img src="3Dworks/場景/NightMarket_3.webp" alt="Night Market 3" />
-                  </div>
-                  <figcaption><span>Scene 03</span><strong>Night Market</strong></figcaption>
-                </figure>
-                <figure class="scene-topic">
-                  <div class="topic-slides">
-                    <img src="3Dworks/場景/Office_1.webp" alt="Office 1" />
-                    <img src="3Dworks/場景/Office_2.webp" alt="Office 2" />
-                  </div>
-                  <figcaption><span>Scene 04</span><strong>Office</strong></figcaption>
-                </figure>
-              </div>
-            </article>
-
-            <article class="works-panel" data-work-panel="2">
-              <div class="character-works-grid">
-                <figure class="character-work featured">
-                  <img src="3Dworks/角色/Sports game characters.png" alt="Stylized sports game characters" />
-                  <figcaption><span>Character</span><strong>Sports Player</strong></figcaption>
-                </figure>
-                <figure class="character-work">
-                  <img src="3Dworks/角色/Lion Character.png" alt="Stylized lion character" />
-                  <figcaption>Lion Character</figcaption>
-                </figure>
-                <figure class="character-work">
-                  <img src="3Dworks/角色/historical roles1.png" alt="Historical role character 1" />
-                  <figcaption>Historical Role 01</figcaption>
-                </figure>
-                <figure class="character-work">
-                  <img src="3Dworks/角色/historical roles2.png" alt="Historical role character 2" />
-                  <figcaption>Historical Role 02</figcaption>
-                </figure>
-              </div>
-            </article>
-          </section>
-        </article>
-
-        <article class="page art-page" data-title="2D 繪圖作品">
-          <div class="split-copy">
-            <p class="eyebrow">Drawing</p>
-            <h2>2D <span>Artworks</span></h2>
-            <p class="subtitle">概念設計 / 插畫 / 草圖</p>
-          </div>
-          <div class="art-gallery" aria-label="2D 作品展示">
-            <figure class="art-preview">
-              <img id="artPreviewImage" src="2D/艾蒙.png" alt="艾蒙" />
-              <figcaption id="artPreviewTitle">艾蒙</figcaption>
-            </figure>
-            <div class="art-thumbs" aria-label="2D 作品縮圖">
-              <button class="art-thumb active" type="button" data-title="艾蒙" data-src="2D/艾蒙.png">
-                <img src="2D/艾蒙.png" alt="艾蒙" />
-              </button>
-              <button class="art-thumb" type="button" data-title="織女" data-src="2D/織女.png" data-gif="2D/織女.gif">
-                <img src="2D/織女.png" alt="織女" />
-              </button>
-              <button class="art-thumb" type="button" data-title="哈利波特" data-src="2D/哈利波特.png">
-                <img src="2D/哈利波特.png" alt="哈利波特" />
-              </button>
-              <button class="art-thumb" type="button" data-title="小海豹" data-src="2D/小海豹3.JPG.jpg">
-                <img src="2D/小海豹3.JPG.jpg" alt="小海豹" />
-              </button>
-              <button class="art-thumb" type="button" data-title="封面設計" data-src="2D/封面(字).jpg">
-                <img src="2D/封面(字).jpg" alt="封面設計" />
-              </button>
+          <div class="project-media">
+            <div class="video-frame">
+              <iframe
+                title="VT悠鈦悠影片"
+                src="https://www.youtube-nocookie.com/embed/BAcjLmvDzqs?start=140&rel=0&modestbranding=1&playsinline=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="thumb-grid">
+              <img src="project/VT悠鈦悠/悠鈦悠2.webp" alt="悠鈦悠角色渲染" loading="lazy" />
+              <img src="project/VT悠鈦悠/cover.png" alt="悠鈦悠封面" loading="lazy" />
+              <img src="project/VT悠鈦悠/螢幕擷取畫面 2024-07-10 055606.png" alt="悠鈦悠製作過程 1" loading="lazy" />
+              <img src="project/VT悠鈦悠/螢幕擷取畫面 2024-07-10 055619.png" alt="悠鈦悠製作過程 2" loading="lazy" />
             </div>
           </div>
         </article>
 
-        <article class="page project-page" data-title="專案製作">
-          <header class="page-heading">
-            <h2>Project <span>Making</span></h2>
-            <p class="subtitle">專案製作</p>
-          </header>
-          <section class="project-layout" aria-label="Project cover accordion">
-            <article class="project-card" data-project-panel="0">
-              <button class="project-cover-button" type="button" data-project-tab="0" aria-expanded="false">
-                <img src="project/調停者/cover.webp" alt="調停者 project cover" />
-                <span><em>01</em><strong>調停者</strong></span>
-              </button>
-              <div class="project-expand-panel">
-                <div class="project-detail active" data-project-detail="0">
-                  <span class="project-date">2023 / 06 / 09</span>
-                  <h3>調停者</h3>
-                  <p>畢業 VR 遊戲製作。一款以時間為核心要素的第三人稱 VR 遊戲，負責故事編寫、關卡設計與場景製作。</p>
-                  <div class="project-tags">
-                    <span>Unity</span><span>VR</span><span>Blender</span><span>Substance Painter</span>
-                  </div>
-                  <a class="project-report-link" href="https://gnn.gamer.com.tw/detail.php?sn=250542" target="_blank" rel="noreferrer">報導連結</a>
-                </div>
-                <div class="project-video project-video-frame">
-                  <iframe
-                    title="調停者影片"
-                    src="https://www.youtube-nocookie.com/embed/6Jq17VpJY7o?enablejsapi=1&rel=0&modestbranding=1&playsinline=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    loading="lazy"
-                  ></iframe>
-                  <a class="project-video-fallback" href="project/調停者/調停者.mp4">本地備用影片</a>
-                </div>
-                <div class="project-film-strip" aria-label="調停者 project images">
-                  <div class="project-film-track">
-                    <img src="project/調停者/遊戲畫面/gameplay-02-original-demo.gif" alt="調停者遊戲畫面 02" />
-                    <img src="project/調停者/遊戲畫面/gameplay-03-time-puzzle.gif" alt="調停者遊戲畫面 03" />
-                    <img src="project/調停者/遊戲畫面/level-01-exterior-blockout.png" alt="調停者遊戲畫面 04" />
-                    <img src="project/調停者/遊戲畫面/level-02-exterior-color.png" alt="調停者遊戲畫面 05" />
-                    <img src="project/調停者/遊戲畫面/level-03-interior-blockout.png" alt="調停者遊戲畫面 06" />
-                    <img src="project/調停者/遊戲畫面/level-04-interior-color.png" alt="調停者遊戲畫面 07" />
-                    <img src="project/調停者/遊戲畫面/gameplay-04-corridor.jpg" alt="調停者遊戲畫面 08" />
-                    <img src="project/調停者/遊戲畫面/gameplay-05-hallway.jpg" alt="調停者遊戲畫面 09" />
-                    <img src="project/調停者/遊戲畫面/gameplay-06-room.jpg" alt="調停者遊戲畫面 10" />
-                    <img src="project/調停者/遊戲畫面/gameplay-07-doorway.jpg" alt="調停者遊戲畫面 11" />
-                    <img src="project/調停者/遊戲畫面/gameplay-08-puzzle-room.jpg" alt="調停者遊戲畫面 12" />
-                    <img src="project/調停者/遊戲畫面/gameplay-09-ruins.jpg" alt="調停者遊戲畫面 13" />
-                    <img src="project/調停者/遊戲畫面/gameplay-10-temple.jpg" alt="調停者遊戲畫面 14" />
-                    <img src="project/調停者/遊戲畫面/gameplay-11-mechanism.jpg" alt="調停者遊戲畫面 15" />
-                    <img src="project/調停者/遊戲畫面/gameplay-12-interior.jpg" alt="調停者遊戲畫面 16" />
-                    <img src="project/調停者/遊戲畫面/game-asset-01-time-cube.webp" alt="調停者遊戲畫面 17" />
-                    <img src="project/調停者/企劃與關卡設計/design-01-world-concept.webp" alt="調停者企劃與關卡設計 01" />
-                    <img src="project/調停者/企劃與關卡設計/design-02-story-concept.webp" alt="調停者企劃與關卡設計 02" />
-                    <img src="project/調停者/企劃與關卡設計/design-03-environment-sketch.webp" alt="調停者企劃與關卡設計 03" />
-                    <img src="project/調停者/企劃與關卡設計/design-04-level-sketch.webp" alt="調停者企劃與關卡設計 04" />
-                    <img src="project/調停者/企劃與關卡設計/design-05-gameplay-notes.webp" alt="調停者企劃與關卡設計 05" />
-                    <img src="project/調停者/企劃與關卡設計/design-06-flowchart-red.webp" alt="調停者企劃與關卡設計 06" />
-                    <img src="project/調停者/企劃與關卡設計/design-07-flowchart-blue.webp" alt="調停者企劃與關卡設計 07" />
-                    <img src="project/調停者/遊戲畫面/gameplay-02-original-demo.gif" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-03-time-puzzle.gif" alt="" />
-                    <img src="project/調停者/遊戲畫面/level-01-exterior-blockout.png" alt="" />
-                    <img src="project/調停者/遊戲畫面/level-02-exterior-color.png" alt="" />
-                    <img src="project/調停者/遊戲畫面/level-03-interior-blockout.png" alt="" />
-                    <img src="project/調停者/遊戲畫面/level-04-interior-color.png" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-04-corridor.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-05-hallway.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-06-room.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-07-doorway.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-08-puzzle-room.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-09-ruins.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-10-temple.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-11-mechanism.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/gameplay-12-interior.jpg" alt="" />
-                    <img src="project/調停者/遊戲畫面/game-asset-01-time-cube.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-01-world-concept.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-02-story-concept.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-03-environment-sketch.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-04-level-sketch.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-05-gameplay-notes.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-06-flowchart-red.webp" alt="" />
-                    <img src="project/調停者/企劃與關卡設計/design-07-flowchart-blue.webp" alt="" />
-                  </div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card" data-project-panel="1">
-              <button class="project-cover-button" type="button" data-project-tab="1" aria-expanded="false">
-                <img src="project/VT悠鈦悠/cover.png" alt="VT悠鈦悠 project cover" />
-                <span><em>02</em><strong>VT悠鈦悠</strong></span>
-              </button>
-              <div class="project-expand-panel">
-                <div class="project-detail" data-project-detail="1">
-                  <span class="project-date">2024 / 06 / 12</span>
-                  <h3>VT悠鈦悠</h3>
-                  <p>以手工藝與金屬工藝為角色核心，初次完整嘗試 3D VT 模型流程，包含概念設計、角色製作與場景製作。</p>
-                  <div class="project-tags">
-                    <span>Blender</span><span>VRoid</span><span>Unity</span><span>Warudo</span><span>Motion Capture</span>
-                  </div>
-                </div>
-                <div class="project-video project-video-frame">
-                  <iframe
-                    title="VT悠鈦悠影片"
-                    src="https://www.youtube-nocookie.com/embed/BAcjLmvDzqs?start=140&enablejsapi=1&rel=0&modestbranding=1&playsinline=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    loading="lazy"
-                  ></iframe>
-                  <a class="project-video-fallback" href="project/VT悠鈦悠/悠鈦悠2-web.mp4">本地備用影片</a>
-                </div>
-                <div class="project-film-strip" aria-label="VT悠鈦悠 project images">
-                  <div class="project-film-track">
-                    <img src="project/VT悠鈦悠/悠鈦悠2.webp" alt="VT悠鈦悠 character render" />
-                    <img src="project/VT悠鈦悠/螢幕擷取畫面 2024-07-10 055606.png" alt="VT悠鈦悠 production capture 1" />
-                    <img src="project/VT悠鈦悠/螢幕擷取畫面 2024-07-10 055619.png" alt="VT悠鈦悠 production capture 2" />
-                    <img src="project/VT悠鈦悠/cover.png" alt="VT悠鈦悠 cover" />
-                    <img src="project/VT悠鈦悠/悠鈦悠2.webp" alt="" />
-                    <img src="project/VT悠鈦悠/螢幕擷取畫面 2024-07-10 055606.png" alt="" />
-                    <img src="project/VT悠鈦悠/螢幕擷取畫面 2024-07-10 055619.png" alt="" />
-                    <img src="project/VT悠鈦悠/cover.png" alt="" />
-                  </div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card" data-project-panel="2">
-              <button class="project-cover-button" type="button" data-project-tab="2" aria-expanded="false">
-                <img src="project/追殺闆闆/cover.png" alt="追殺闆闆 project cover" />
-                <span><em>03</em><strong>追殺闆闆</strong></span>
-              </button>
-              <div class="project-expand-panel">
-                <div class="project-detail" data-project-detail="2">
-                  <span class="project-date">2024</span>
-                  <h3>追殺闆闆</h3>
-                  <p>整理遊戲專案視覺與報導素材，呈現從宣傳主視覺、遊戲畫面到活動曝光的專案成果。</p>
-                  <div class="project-tags">
-                    <span>Game Project</span><span>Visual</span><span>Promotion</span>
-                  </div>
-                  <a class="project-report-link" href="https://gnn.gamer.com.tw/detail.php?sn=287034" target="_blank" rel="noreferrer">報導連結</a>
-                </div>
-                <div class="project-video project-video-frame">
-                  <iframe
-                    title="追殺闆闆影片"
-                    src="https://www.youtube-nocookie.com/embed/6G5ChUGRewM?enablejsapi=1&rel=0&modestbranding=1&playsinline=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    loading="lazy"
-                  ></iframe>
-                  <a class="project-video-fallback" href="project/追殺闆闆/追殺闆闆.mp4">本地備用影片</a>
-                </div>
-                <div class="project-film-strip" aria-label="追殺闆闆 project images">
-                  <div class="project-film-track">
-                    <img src="project/追殺闆闆/hq720.jpg" alt="追殺闆闆 video thumbnail" />
-                    <img src="project/追殺闆闆/追殺闆闆-4-1024x523.jpg" alt="追殺闆闆 gameplay image" />
-                    <img src="project/追殺闆闆/b5c9aff148e33347fb1b78b98d1uix05.jpg" alt="追殺闆闆 event image" />
-                    <img src="project/追殺闆闆/178333103879250_P32277963.jpg" alt="追殺闆闆 article image" />
-                    <img src="project/追殺闆闆/cover.png" alt="追殺闆闆 cover" />
-                    <img src="project/追殺闆闆/hq720.jpg" alt="" />
-                    <img src="project/追殺闆闆/追殺闆闆-4-1024x523.jpg" alt="" />
-                    <img src="project/追殺闆闆/b5c9aff148e33347fb1b78b98d1uix05.jpg" alt="" />
-                    <img src="project/追殺闆闆/178333103879250_P32277963.jpg" alt="" />
-                    <img src="project/追殺闆闆/cover.png" alt="" />
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-          <div class="project-gallery-overlay" aria-hidden="true" data-project-gallery-overlay>
-            <button class="project-gallery-close" type="button" aria-label="關閉圖片展示" data-project-gallery-close>×</button>
-            <div class="project-gallery-grid" data-project-gallery-grid></div>
+        <article class="project">
+          <div class="project-info">
+            <p class="project-date">2024</p>
+            <h3>追殺闆闆</h3>
+            <p>整理遊戲專案視覺與報導素材，呈現從宣傳主視覺、遊戲畫面到活動曝光的專案成果。</p>
+            <ul class="tags">
+              <li>Game Project</li><li>Visual</li><li>Promotion</li>
+            </ul>
+            <a class="text-link" href="https://gnn.gamer.com.tw/detail.php?sn=287034" target="_blank" rel="noreferrer">巴哈姆特報導 ↗</a>
           </div>
-        </article>
-
-        <article class="page end-page" data-title="結尾">
-          <div class="end-orbit"></div>
-          <section class="end-content">
-            <h2>THE <span>END</span></h2>
-            <p>Thank you for watching</p>
-            <div class="end-contact">
-              <span>Contact</span>
-              <a href="tel:0956180033">0956180033</a>
+          <div class="project-media">
+            <div class="video-frame">
+              <iframe
+                title="追殺闆闆影片"
+                src="https://www.youtube-nocookie.com/embed/6G5ChUGRewM?rel=0&modestbranding=1&playsinline=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+                loading="lazy"
+              ></iframe>
             </div>
-          </section>
+            <div class="thumb-grid">
+              <img src="project/追殺闆闆/cover.png" alt="追殺闆闆主視覺" loading="lazy" />
+              <img src="project/追殺闆闆/追殺闆闆-4-1024x523.jpg" alt="追殺闆闆遊戲畫面" loading="lazy" />
+              <img src="project/追殺闆闆/b5c9aff148e33347fb1b78b98d1uix05.jpg" alt="追殺闆闆活動照片" loading="lazy" />
+              <img src="project/追殺闆闆/178333103879250_P32277963.jpg" alt="追殺闆闆報導圖片" loading="lazy" />
+            </div>
+          </div>
         </article>
       </section>
+
+      <!-- 06 Thank You -->
+      <footer class="site-footer" id="contact">
+        <p class="page-num">06</p>
+        <div class="thanks">
+          <span class="thanks-orbit" aria-hidden="true"></span>
+          <span class="thanks-spark" aria-hidden="true">✦</span>
+          <h2>Thank <span>You</span></h2>
+          <p class="thanks-sub">For Watching</p>
+        </div>
+        <div class="contact-block">
+          <p class="contact-label">Contact</p>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z" /><path d="m4 7 8 6 8-6" /></svg>
+              <a href="mailto:yonghenz684@gmail.com">yonghenz684@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17h10l-2 4H6z" /><path d="M9 3h5l8 18h-5z" /><path d="M2 13h10l-2-4H4z" /></svg>
+              <a href="https://www.artstation.com/foreverplanet" target="_blank" rel="noreferrer">artstation.com/foreverplanet</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4l2 5-3 2c1.3 2.5 3.5 4.6 6 6l2-3 5 2v4c0 1.1-.9 2-2 2C10.5 22 2 13.5 2 3c0-1.1.9-2 2-2h3z" /></svg>
+              <a href="tel:0956180033">0956-180-033</a>
+            </li>
+          </ul>
+        </div>
+        <p class="footer-note">© 2026 張詠恆 · Forever Planet</p>
+      </footer>
     </main>
+
+    <!-- Lightbox Gallery -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="關閉圖片">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="上一張">‹</button>
+      <img alt="" />
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="下一張">›</button>
+      <div class="lightbox-meta">
+        <p class="lightbox-caption"></p>
+        <p class="lightbox-count"></p>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
